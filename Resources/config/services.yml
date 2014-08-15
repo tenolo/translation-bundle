@@ -1,0 +1,14 @@
+parameters:
+    tenolo_translation.service.class: Tenolo\TranslationBundle\Service\TranslationService
+    tenolo_translation.database_loader.class: Tenolo\TranslationBundle\Translation\Loader\DatabaseLoader
+
+services:
+    tenolo_translation.service:
+        class: %tenolo_translation.service.class%
+        arguments: ["@kernel", "@doctrine.orm.entity_manager"]
+
+    tenolo_translation.database_loader:
+        class: %tenolo_translation.database_loader.class%
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: translation.loader, alias: db }

@@ -1,0 +1,8 @@
+{% extends "TenoloAdminBundle:Form:list.html.twig" %}
+
+{% block buttons %}
+    {{ parent() }}
+    {% if route is defined %}
+        <a href="{{ path(route.clearCache) }}" class="btn btn-danger">{{ fa('trash-o') }} {{ 'translation.cache.clear'|trans }}</a>
+    {% endif %}
+{% endblock %}

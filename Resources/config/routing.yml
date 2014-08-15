@@ -1,0 +1,3 @@
+tenolo_translation:
+    resource: "@TenoloTranslationBundle/Controller"
+    type:     annotation

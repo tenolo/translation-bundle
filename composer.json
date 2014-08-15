@@ -1,0 +1,36 @@
+{
+    "name": "tenolo/translation-bundle",
+    "description": "",
+    "keywords": ["translation", "database", "tenolo"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "homepage": "http://tenolo.de",
+    "authors": [
+        {
+            "name": "tenolo - Robert Bernis, Johannes Herberhold GbR",
+            "email": "info@tenolo.de",
+            "homepage": "http://tenolo.de"
+        },
+        {
+            "name": "Nikita Loges",
+            "email": "nl@tenolo.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "tenolo/core-bundle": "dev-master",
+        "tenolo/admin-bundle": "dev-master",
+        "symfony/framework-bundle": "~2.4",
+        "symfony/twig-bundle": "~2.4"
+    },
+    "require-dev": {
+        "symfony/assetic-bundle": "~2.3",
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Tenolo\\TranslationBundle": ""
+        }
+    },
+    "target-dir": "Tenolo/TranslationBundle"
+}
