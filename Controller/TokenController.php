@@ -2,7 +2,7 @@
 
 namespace Tenolo\TranslationBundle\Controller;
 
-use Tenolo\AdminBundle\Controller\BaseController;
+use Tenolo\AdminControlPanelBundle\Controller\BaseController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**

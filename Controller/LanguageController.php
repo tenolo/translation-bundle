@@ -3,7 +3,7 @@
 namespace Tenolo\TranslationBundle\Controller;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Tenolo\AdminBundle\Controller\BaseController;
+use Tenolo\AdminControlPanelBundle\Controller\BaseController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**

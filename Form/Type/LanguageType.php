@@ -4,7 +4,7 @@ namespace Tenolo\TranslationBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Tenolo\AdminBundle\Form\Type\BaseType;
+use Tenolo\AdminControlPanelBundle\Form\Type\BaseType;
 
 /**
  * Class LanguageType

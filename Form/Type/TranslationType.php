@@ -2,7 +2,7 @@
 
 namespace Tenolo\TranslationBundle\Form\Type;
 
-use Tenolo\AdminBundle\Form\Type\BaseType;
+use Tenolo\AdminControlPanelBundle\Form\Type\BaseType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
