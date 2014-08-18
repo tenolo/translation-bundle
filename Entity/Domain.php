@@ -7,7 +7,7 @@ use Tenolo\CoreBundle\Entity\BaseEntity;
 use Tenolo\CoreBundle\Entity\Scheme\Name;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Tenolo\CoreBundle\Doctrine\Annotations as TCA;
+use Tenolo\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
 
 /**
  * Class Domain
@@ -16,7 +16,7 @@ use Tenolo\CoreBundle\Doctrine\Annotations as TCA;
  *
  * @ORM\Entity(repositoryClass="Tenolo\TranslationBundle\Repository\DomainRepository")
  * @ORM\HasLifecycleCallbacks
- * @TCA\Prefix(name="language")
+ * @TDTPA\Prefix(name="language")
  */
 class Domain extends BaseEntity
 {
