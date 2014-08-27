@@ -24,7 +24,7 @@ class TranslationType extends BaseType
         // basic data
         $basic = $builder->create('basic', 'form', array(
             'label' => 'Allgemein',
-            'virtual' => true
+            'inherit_data' => true
         ));
         $basic->add('language', 'entity', array(
             'label' => 'Sprache',

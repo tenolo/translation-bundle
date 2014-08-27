@@ -24,7 +24,7 @@ class LanguageType extends BaseType
         // basic data
         $basic = $builder->create('basic', 'form', array(
             'label' => 'Allgemein',
-            'virtual' => true
+            'inherit_data' => true
         ));
         $basic->add('name', 'text', array(
             'label' => 'Name',

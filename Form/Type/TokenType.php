@@ -24,7 +24,7 @@ class TokenType extends BaseType
         // basic data
         $basic = $builder->create('basic', 'form', array(
             'label' => 'Allgemein',
-            'virtual' => true
+            'inherit_data' => true
         ));
         $basic->add('name', 'text', array(
             'label' => 'Name',
@@ -37,7 +37,7 @@ class TokenType extends BaseType
         // basic data
         $domain = $builder->create('domainWrapper', 'form', array(
             'label' => 'Domain',
-            'virtual' => true
+            'inherit_data' => true
         ));
         $domain->add('domain', 'entity', array(
             'label' => 'Domain',
