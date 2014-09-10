@@ -16,7 +16,7 @@ class DomainController extends BaseController
 {
 
     /** @{inheritdoc} */
-    protected $entityRepository = "TenoloTranslationBundle:Domain";
+    protected $entityName = "TenoloTranslationBundle:Domain";
 
     /** @{inheritdoc} */
     protected $formType = 'Tenolo\TranslationBundle\Form\Type\DomainType';

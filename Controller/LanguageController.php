@@ -17,7 +17,7 @@ class LanguageController extends BaseController
 {
 
     /** @{inheritdoc} */
-    protected $entityRepository = "TenoloTranslationBundle:Language";
+    protected $entityName = "TenoloTranslationBundle:Language";
 
     /** @{inheritdoc} */
     protected $formType = 'Tenolo\TranslationBundle\Form\Type\LanguageType';

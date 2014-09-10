@@ -16,7 +16,7 @@ class TokenController extends BaseController
 {
 
     /** @{inheritdoc} */
-    protected $entityRepository = "TenoloTranslationBundle:Token";
+    protected $entityName = "TenoloTranslationBundle:Token";
 
     /** @{inheritdoc} */
     protected $formType = 'Tenolo\TranslationBundle\Form\Type\TokenType';
