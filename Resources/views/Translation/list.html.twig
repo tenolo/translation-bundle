@@ -1,17 +1,13 @@
 {% extends "TenoloAdminControlPanelBundle:Form:list.html.twig" %}
 
-{% block tableheader %}
+{% block tableRowHeader %}
     <th>{{ knp_pagination_sortable(objects, 'Wert', 'p.translation') }}</th>
     <th>{{ knp_pagination_sortable(objects, 'Token', 'p.token') }}</th>
     <th>{{ knp_pagination_sortable(objects, 'Sprache', 'p.language') }}</th>
-    <th>{{ knp_pagination_sortable(objects, 'Erstellt', 'p.createdAt') }}</th>
-    <th>{{ knp_pagination_sortable(objects, 'Aktualisiert', 'p.updatedAt') }}</th>
 {% endblock %}
 
-{% block tablecontent %}
+{% block tableRowContent %}
     <td><a href="{{ path(route.edit, { "id": o.id }) }}">{{ o.translation }}</a></td>
     <td>{{ o.token.name }}</td>
     <td>{{ o.language.name }}</td>
-    <td>{{ o.createdAt|date("d.m.Y H:i") }}</td>
-    <td>{{ o.updatedAt|date("d.m.Y H:i") }}</td>
 {% endblock %}
