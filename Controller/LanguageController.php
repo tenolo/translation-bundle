@@ -43,7 +43,8 @@ class LanguageController extends BaseController
     /**
      * {@inheritdoc}
      */
-    protected function initControllerActions() {
+    protected function initControllerActions()
+    {
         parent::initControllerActions();
 
         $this->addControllerActions(array(
@@ -54,7 +55,8 @@ class LanguageController extends BaseController
     /**
      * @Route("/cache/clear", name="cache.clear")
      */
-    public function clearCacheAction() {
+    public function clearCacheAction()
+    {
         $this->get('tenolo_translation.service')->clearLanguageCache();
         $this->get('tenolo_translation.service')->renewLanguageFakeFiles();
 

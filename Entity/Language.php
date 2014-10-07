@@ -38,7 +38,8 @@ class Language extends BaseEntity
     /**
      * {@inheritdoc}
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->translations = new ArrayCollection();
@@ -47,7 +48,8 @@ class Language extends BaseEntity
     /**
      * @return ArrayCollection
      */
-    public function getTranslations() {
+    public function getTranslations()
+    {
         return $this->translations;
     }
 

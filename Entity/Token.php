@@ -40,7 +40,8 @@ class Token extends BaseEntity
     /**
      * {@inheritdoc}
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->translations = new ArrayCollection();
@@ -49,7 +50,8 @@ class Token extends BaseEntity
     /**
      * @return ArrayCollection
      */
-    public function getTranslations() {
+    public function getTranslations()
+    {
         return $this->translations;
     }
 
@@ -75,7 +77,8 @@ class Token extends BaseEntity
     /**
      * @return string
      */
-    public function __toString() {
-        return $this->getDomain()->getName().': '.$this->getName();
+    public function __toString()
+    {
+        return $this->getDomain()->getName() . ': ' . $this->getName();
     }
 } 

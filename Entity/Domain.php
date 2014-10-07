@@ -32,7 +32,8 @@ class Domain extends BaseEntity
     /**
      * {@inheritdoc}
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->tokens = new ArrayCollection();
@@ -41,7 +42,8 @@ class Domain extends BaseEntity
     /**
      * @return ArrayCollection
      */
-    public function getTokens() {
+    public function getTokens()
+    {
         return $this->tokens;
     }
 } 
