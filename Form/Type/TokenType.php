@@ -57,6 +57,8 @@ class TokenType extends BaseType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        parent::setDefaultOptions($resolver);
+
         $resolver->setDefaults(array(
             'data_class' => 'Tenolo\TranslationBundle\Entity\Token',
         ));
