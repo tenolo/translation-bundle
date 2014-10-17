@@ -19,7 +19,7 @@ class TranslationController extends BaseController
     protected $entityName = "TenoloTranslationBundle:Translation";
 
     /** @{inheritdoc} */
-    protected $formType = 'Tenolo\TranslationBundle\Form\Type\TranslationType';
+    protected $formTypeClassName = 'Tenolo\TranslationBundle\Form\Type\TranslationType';
 
     /** @{inheritdoc} */
     protected $icon = "flag";

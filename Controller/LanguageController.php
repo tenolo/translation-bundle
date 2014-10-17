@@ -20,7 +20,7 @@ class LanguageController extends BaseController
     protected $entityName = "TenoloTranslationBundle:Language";
 
     /** @{inheritdoc} */
-    protected $formType = 'Tenolo\TranslationBundle\Form\Type\LanguageType';
+    protected $formTypeClassName = 'Tenolo\TranslationBundle\Form\Type\LanguageType';
 
     /** @{inheritdoc} */
     protected $icon = "flag";
