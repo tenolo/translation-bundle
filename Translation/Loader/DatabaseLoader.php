@@ -82,6 +82,9 @@ class DatabaseLoader implements LoaderInterface
      */
     public function load($resource, $locale, $domainName = 'messages')
     {
+        // create catalogue
+        $catalogue = new MessageCatalogue($locale);
+
         /**
          * load on the db for the specified local
          * @var Language $language
@@ -95,11 +98,12 @@ class DatabaseLoader implements LoaderInterface
             'name' => $domainName
         ));
 
+        if(!$language || !$domain) {
+            return $catalogue;
+        }
+
         // get all translations for this language and domain
         $translations = $this->getTranslationRepository()->findAllByLanguageAndDomain($language, $domain);
-
-        // create catalogue
-        $catalogue = new MessageCatalogue($locale);
 
         /** @var $translation Translation */
         foreach ($translations as $translation) {
