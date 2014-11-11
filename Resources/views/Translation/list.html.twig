@@ -5,7 +5,7 @@
  #}
 
 {# template extend #}
-{% extends "TenoloAdminControlPanelBundle:Form:list.html.twig" %}
+{% extends "TenoloAdminControlPanelBundle:List/Table:table.html.twig" %}
 
 {# {@inheritdoc} #}
 {% block tableRowHeader %}
@@ -15,7 +15,7 @@
 {% endblock %}
 
 {# {@inheritdoc} #}
-{% block tableRowContent %}
+{% block itemContent %}
     {{ table.rowcolumn('<a href="' ~ path(route.edit, { "id": o.id }) ~ '">' ~ o.translation ~ '</a>') }}
     {{ table.rowcolumn(o.token.name) }}
     {{ table.rowcolumn(o.language.name) }}
