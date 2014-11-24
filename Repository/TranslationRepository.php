@@ -3,8 +3,8 @@
 namespace Tenolo\TranslationBundle\Repository;
 
 use Tenolo\CoreBundle\Repository\BaseEntityRepository;
-use Tenolo\TranslationBundle\Entity\Language;
 use Tenolo\TranslationBundle\Entity\Domain;
+use Tenolo\TranslationBundle\Entity\Language;
 
 /**
  * Class TranslationRepository

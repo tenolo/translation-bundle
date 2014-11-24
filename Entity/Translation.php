@@ -3,10 +3,10 @@
 namespace Tenolo\TranslationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\CoreBundle\Entity\BaseEntity;
 use Tenolo\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Class Translation

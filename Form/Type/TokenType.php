@@ -2,9 +2,9 @@
 
 namespace Tenolo\TranslationBundle\Form\Type;
 
-use Tenolo\AdminControlPanelBundle\Form\Type\BaseType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Tenolo\AdminControlPanelBundle\Form\Type\BaseType;
 
 /**
  * Class TokenType

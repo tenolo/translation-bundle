@@ -5,8 +5,8 @@ namespace Tenolo\TranslationBundle\Translation\Loader;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Translation\Loader\LoaderInterface;
 use Symfony\Component\Translation\MessageCatalogue;
-use Tenolo\TranslationBundle\Entity\Language;
 use Tenolo\TranslationBundle\Entity\Domain;
+use Tenolo\TranslationBundle\Entity\Language;
 use Tenolo\TranslationBundle\Entity\Translation;
 use Tenolo\TranslationBundle\Repository\DomainRepository;
 use Tenolo\TranslationBundle\Repository\LanguageRepository;
@@ -98,7 +98,7 @@ class DatabaseLoader implements LoaderInterface
             'name' => $domainName
         ));
 
-        if(!$language || !$domain) {
+        if (!$language || !$domain) {
             return $catalogue;
         }
 

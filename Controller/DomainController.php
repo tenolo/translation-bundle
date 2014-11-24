@@ -2,8 +2,8 @@
 
 namespace Tenolo\TranslationBundle\Controller;
 
-use Tenolo\AdminControlPanelBundle\Controller\BaseController;
 use Symfony\Component\Routing\Annotation\Route;
+use Tenolo\AdminControlPanelBundle\Controller\BaseController;
 
 /**
  * Class DomainController
