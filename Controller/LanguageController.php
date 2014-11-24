@@ -3,8 +3,8 @@
 namespace Tenolo\TranslationBundle\Controller;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Tenolo\AdminControlPanelBundle\Controller\BaseController;
 use Symfony\Component\Routing\Annotation\Route;
+use Tenolo\AdminControlPanelBundle\Controller\BaseController;
 
 /**
  * Class LanguageController
@@ -39,18 +39,6 @@ class LanguageController extends BaseController
             'plural' => 'translation.language.object.plural',
         )
     );
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function initControllerActions()
-    {
-        parent::initControllerActions();
-
-        $this->addControllerActions(array(
-            'clearCache'
-        ));
-    }
 
     /**
      * @Route("/cache/clear", name="cache.clear")
