@@ -4,9 +4,9 @@ namespace Tenolo\TranslationBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\CoreBundle\Entity\BaseEntity;
-use Tenolo\CoreBundle\Entity\Scheme\Name;
 
 /**
  * Class Language
@@ -15,10 +15,10 @@ use Tenolo\CoreBundle\Entity\Scheme\Name;
  *
  * @ORM\Entity(repositoryClass="Tenolo\TranslationBundle\Repository\LanguageRepository")
  * @ORM\HasLifecycleCallbacks
+ * @UniqueEntity(fields={"locale"}, message="Jede Sprache kann nur einmal verwendet werden.")
  */
 class Language extends BaseEntity
 {
-    use Name;
 
     /**
      * @var string
@@ -70,6 +70,20 @@ class Language extends BaseEntity
         $this->locale = $locale;
 
         return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName() {
+        return $this->getLocaleBundle()->getLocaleName($this->getLocale());
+    }
+
+    /**
+     * @return \Symfony\Component\Intl\ResourceBundle\LocaleBundleInterface
+     */
+    protected function getLocaleBundle() {
+        return \Symfony\Component\Intl\Intl::getLocaleBundle();
     }
 
 } 

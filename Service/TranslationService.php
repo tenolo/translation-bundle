@@ -3,9 +3,9 @@
 namespace Tenolo\TranslationBundle\Service;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
+use Tenolo\CoreBundle\Service\AbstractService;
 use Tenolo\TranslationBundle\Entity\Domain;
 use Tenolo\TranslationBundle\Entity\Language;
 
@@ -16,28 +16,8 @@ use Tenolo\TranslationBundle\Entity\Language;
  * @company tenolo GbR
  * @date 06.08.14
  */
-class TranslationService
+class TranslationService extends AbstractService
 {
-
-    /**
-     * @var \AppKernel
-     */
-    private $kernel;
-
-    /**
-     * @var EntityManager
-     */
-    private $em;
-
-    /**
-     * @param \AppKernel $kernel
-     * @param EntityManager $em
-     */
-    public function __construct(\AppKernel $kernel, EntityManager $em)
-    {
-        $this->kernel = $kernel;
-        $this->em = $em;
-    }
 
     /**
      *
@@ -45,8 +25,8 @@ class TranslationService
     public function renewLanguageFakeFiles()
     {
         // find need data
-        $languages = $this->em->getRepository('TenoloTranslationBundle:Language')->matchingAll();
-        $domains = $this->em->getRepository('TenoloTranslationBundle:Domain')->matchingAll();
+        $languages = $this->getLanguageRepository()->matchingAll();
+        $domains = $this->getDomainRepository()->matchingAll();
 
         // file collection
         $languageFiles = new ArrayCollection();
@@ -55,7 +35,7 @@ class TranslationService
         $filesystem = new Filesystem();
 
         // dirs
-        $appDir = $this->kernel->getRootDir();
+        $appDir = $this->getKernel()->getRootDir();
         $subDir = '/Resources/translations/';
         $completeDir = $appDir . $subDir;
 
@@ -94,7 +74,7 @@ class TranslationService
     public function clearLanguageCache()
     {
         // get cache dir
-        $cache = $this->kernel->getCacheDir();
+        $cache = $this->getKernel()->getCacheDir();
 
         $translationDir = $cache . "/translations";
 
@@ -109,5 +89,21 @@ class TranslationService
 
             $filesystem->remove($translationDir);
         }
+    }
+
+    /**
+     * @return \Tenolo\TranslationBundle\Repository\LanguageRepository
+     */
+    protected function getLanguageRepository()
+    {
+        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Language');
+    }
+
+    /**
+     * @return \Tenolo\TranslationBundle\Repository\DomainRepository
+     */
+    protected function getDomainRepository()
+    {
+        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Domain');
     }
 }

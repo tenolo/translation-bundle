@@ -26,18 +26,11 @@ class LanguageType extends BaseType
             'label' => 'Allgemein',
             'inherit_data' => true
         ));
-        $basic->add('name', 'text', array(
-            'label' => 'Name',
-            'attr' => array(
-                'placeholder' => 'Name',
-                'help_text' => 'Der Name der Sprache.'
-            )
-        ));
-        $basic->add('locale', 'text', array(
+        $basic->add('locale', 'locale', array(
             'label' => 'Länder-Code',
             'attr' => array(
                 'placeholder' => 'Beispiel: de_DE',
-                'help_text' => 'Geben Sie hier bitte den Ländercode ein. Das Format sollte der folgenden Spezifizierung folgen: Der ISO 639-1 Sprachen-Code, dann eine Unterlinie (_) und der ISO 3166-1 alpha-2 Länder-Code. Beispiel: de_DE'
+                'help_text' => 'Wählen Sie bitte die Sprache aus, die Sie übersetzen möchten.'
             )
         ));
         $builder->add($basic);

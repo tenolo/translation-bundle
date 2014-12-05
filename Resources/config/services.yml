@@ -5,10 +5,10 @@ parameters:
 services:
     tenolo_translation.service:
         class: %tenolo_translation.service.class%
-        arguments: ["@kernel", "@doctrine.orm.entity_manager"]
+        arguments: ["@service_container"]
 
     tenolo_translation.database_loader:
         class: %tenolo_translation.database_loader.class%
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@service_container"]
         tags:
             - { name: translation.loader, alias: db }

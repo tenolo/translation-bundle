@@ -26,7 +26,7 @@ class LanguageController extends BaseController
     protected $icon = "flag";
 
     /** @{inheritdoc} */
-    protected $listSearchableParams = array('name');
+    protected $listSearchableParams = array('locale');
 
     /** @{inheritdoc} */
     protected $wording = array(
