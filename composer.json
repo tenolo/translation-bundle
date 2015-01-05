@@ -18,15 +18,17 @@
     ],
     "require": {
         "php": ">=5.4",
-        "tenolo/core-bundle": "dev-master",
-        "tenolo/doctrine-table-prefix-bundle": "dev-master",
-        "tenolo/admin-control-panel-bundle": "dev-master",
+
         "symfony/framework-bundle": "~2.4",
-        "symfony/twig-bundle": "~2.4"
+        "symfony/twig-bundle": "~2.4",
+
+        "tenolo/core-bundle": "dev-develop",
+        "tenolo/doctrine-table-prefix-bundle": "dev-develop",
+        "tenolo/admin-control-panel-bundle": "dev-develop"
     },
     "require-dev": {
         "symfony/assetic-bundle": "~2.3",
-        "phpunit/phpunit": "3.7.*"
+        "phpunit/phpunit": "~4.3"
     },
     "autoload": {
         "psr-0": {
