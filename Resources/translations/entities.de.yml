@@ -7,7 +7,7 @@ translation.language:
     plural: Sprachen
 translation.domain:
   article:
-    singular: Die
+    singular: permission
     plural: Die
   object:
     singular: Domain
