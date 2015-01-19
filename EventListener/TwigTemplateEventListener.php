@@ -1,6 +1,7 @@
 <?php
 namespace Tenolo\TranslationBundle\EventListener;
 
+use Shapecode\Bundle\TwigTemplateEventBundle\Event\Code\TwigEventInclude;
 use Shapecode\Bundle\TwigTemplateEventBundle\Event\TwigTemplateEvent;
 use Tenolo\CoreBundle\Service\AbstractService;
 
@@ -30,6 +31,6 @@ class TwigTemplateEventListener extends AbstractService
      */
     protected function topbarNavigationLeft(TwigTemplateEvent $event)
     {
-        $event->addCode('TenoloTranslationBundle:Layout:navbar-top-left.html.twig');
+        $event->addCode(new TwigEventInclude('TenoloPermissionBundle:Layout:navbar-top-left.html.twig'));
     }
 }
