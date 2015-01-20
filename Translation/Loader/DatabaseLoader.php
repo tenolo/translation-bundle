@@ -1,17 +1,17 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Translation\Loader;
+namespace Tenolo\Bundle\TranslationBundle\Translation\Loader;
 
 use Symfony\Component\Translation\Loader\LoaderInterface;
 use Symfony\Component\Translation\MessageCatalogue;
-use Tenolo\CoreBundle\Service\AbstractService;
-use Tenolo\TranslationBundle\Entity\Domain;
-use Tenolo\TranslationBundle\Entity\Language;
-use Tenolo\TranslationBundle\Entity\Translation;
+use Tenolo\Bundle\CoreBundle\Service\AbstractService;
+use Tenolo\Bundle\TranslationBundle\Entity\Domain;
+use Tenolo\Bundle\TranslationBundle\Entity\Language;
+use Tenolo\Bundle\TranslationBundle\Entity\Translation;
 
 /**
  * Class DatabaseLoader
- * @package Tenolo\CoreBundle\Translation\Loader
+ * @package Tenolo\Bundle\CoreBundle\Translation\Loader
  * @author Nikita Loges
  * @company tenolo GbR
  * @date 05.08.14
@@ -20,7 +20,7 @@ class DatabaseLoader extends AbstractService implements LoaderInterface
 {
 
     /**
-     * @return \Tenolo\TranslationBundle\Repository\TranslationRepository
+     * @return \Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository
      */
     protected function getTranslationRepository()
     {
@@ -28,7 +28,7 @@ class DatabaseLoader extends AbstractService implements LoaderInterface
     }
 
     /**
-     * @return \Tenolo\TranslationBundle\Repository\LanguageRepository
+     * @return \Tenolo\Bundle\TranslationBundle\Repository\LanguageRepository
      */
     protected function getLanguageRepository()
     {
@@ -36,7 +36,7 @@ class DatabaseLoader extends AbstractService implements LoaderInterface
     }
 
     /**
-     * @return \Tenolo\TranslationBundle\Repository\DomainRepository
+     * @return \Tenolo\Bundle\TranslationBundle\Repository\DomainRepository
      */
     protected function getDomainRepository()
     {

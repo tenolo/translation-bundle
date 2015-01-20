@@ -1,20 +1,20 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Entity;
+namespace Tenolo\Bundle\TranslationBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Tenolo\CoreBundle\Entity\BaseEntity;
-use Tenolo\CoreBundle\Entity\Scheme\Name;
-use Tenolo\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
+use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
+use Tenolo\Bundle\CoreBundle\Entity\Scheme\Name;
+use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
 
 /**
  * Class Domain
- * @package Tenolo\CoreBundle\Entity
+ * @package Tenolo\Bundle\CoreBundle\Entity
  * @author Nikita Loges
  *
- * @ORM\Entity(repositoryClass="Tenolo\TranslationBundle\Repository\DomainRepository")
+ * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\DomainRepository")
  * @ORM\HasLifecycleCallbacks
  * @TDTPA\Prefix(name="language")
  */
@@ -25,7 +25,7 @@ class Domain extends BaseEntity
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Tenolo\TranslationBundle\Entity\Token", mappedBy="domain", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Token", mappedBy="domain", cascade={"persist", "remove"})
      */
     protected $tokens;
 

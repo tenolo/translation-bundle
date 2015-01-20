@@ -1,17 +1,17 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Service;
+namespace Tenolo\Bundle\TranslationBundle\Service;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
-use Tenolo\CoreBundle\Service\AbstractService;
-use Tenolo\TranslationBundle\Entity\Domain;
-use Tenolo\TranslationBundle\Entity\Language;
+use Tenolo\Bundle\CoreBundle\Service\AbstractService;
+use Tenolo\Bundle\TranslationBundle\Entity\Domain;
+use Tenolo\Bundle\TranslationBundle\Entity\Language;
 
 /**
  * Class TranslationService
- * @package Tenolo\TranslationBundle\Service
+ * @package Tenolo\Bundle\TranslationBundle\Service
  * @author Nikita Loges
  * @company tenolo GbR
  * @date 06.08.14
@@ -92,7 +92,7 @@ class TranslationService extends AbstractService
     }
 
     /**
-     * @return \Tenolo\TranslationBundle\Repository\LanguageRepository
+     * @return \Tenolo\Bundle\TranslationBundle\Repository\LanguageRepository
      */
     protected function getLanguageRepository()
     {
@@ -100,7 +100,7 @@ class TranslationService extends AbstractService
     }
 
     /**
-     * @return \Tenolo\TranslationBundle\Repository\DomainRepository
+     * @return \Tenolo\Bundle\TranslationBundle\Repository\DomainRepository
      */
     protected function getDomainRepository()
     {

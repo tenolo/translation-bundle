@@ -1,13 +1,13 @@
 <?php
-namespace Tenolo\TranslationBundle\EventListener;
+namespace Tenolo\Bundle\TranslationBundle\EventListener;
 
 use Shapecode\Bundle\TwigTemplateEventBundle\Event\Code\TwigEventInclude;
 use Shapecode\Bundle\TwigTemplateEventBundle\Event\TwigTemplateEvent;
-use Tenolo\CoreBundle\Service\AbstractService;
+use Tenolo\Bundle\CoreBundle\Service\AbstractService;
 
 /**
  * Class TwigTemplateEventListener
- * @package Tenolo\TranslationBundle\EventListener
+ * @package Tenolo\Bundle\TranslationBundle\EventListener
  * @author Nikita Loges
  * @date 11.01.2015
  */

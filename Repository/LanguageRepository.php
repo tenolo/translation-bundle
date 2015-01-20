@@ -1,12 +1,12 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Repository;
+namespace Tenolo\Bundle\TranslationBundle\Repository;
 
-use Tenolo\CoreBundle\Repository\BaseEntityRepository;
+use Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository;
 
 /**
  * Class LanguageRepository
- * @package Tenolo\TranslationBundle\Repository
+ * @package Tenolo\Bundle\TranslationBundle\Repository
  * @author Nikita Loges
  * @company tenolo GbR
  * @date 05.08.14

@@ -1,13 +1,13 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Controller;
+namespace Tenolo\Bundle\TranslationBundle\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Tenolo\AdminControlPanelBundle\Controller\BaseController;
+use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 
 /**
  * Class DomainController
- * @package Tenolo\TranslationBundle\Controller
+ * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
  * @Route("/translation/domain", name="acp.translation.domain")
@@ -19,7 +19,7 @@ class DomainController extends BaseController
     protected $entityName = "TenoloTranslationBundle:Domain";
 
     /** @{inheritdoc} */
-    protected $formTypeClassName = 'Tenolo\TranslationBundle\Form\Type\DomainType';
+    protected $formTypeClassName = 'Tenolo\Bundle\TranslationBundle\Form\Type\DomainType';
 
     /** @{inheritdoc} */
     protected $icon = "flag";

@@ -32,8 +32,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Tenolo\\TranslationBundle": ""
+            "Tenolo\\Bundle\\TranslationBundle": ""
         }
     },
-    "target-dir": "Tenolo/TranslationBundle"
+    "target-dir": "Tenolo/Bundle/TranslationBundle"
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Controller;
+namespace Tenolo\Bundle\TranslationBundle\Controller;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
-use Tenolo\AdminControlPanelBundle\Controller\BaseController;
+use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 
 /**
  * Class LanguageController
- * @package Tenolo\TranslationBundle\Controller
+ * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
  * @Route("/translation/language", name="acp.translation.language")
@@ -20,7 +20,7 @@ class LanguageController extends BaseController
     protected $entityName = "TenoloTranslationBundle:Language";
 
     /** @{inheritdoc} */
-    protected $formTypeClassName = 'Tenolo\TranslationBundle\Form\Type\LanguageType';
+    protected $formTypeClassName = 'Tenolo\Bundle\TranslationBundle\Form\Type\LanguageType';
 
     /** @{inheritdoc} */
     protected $icon = "flag";

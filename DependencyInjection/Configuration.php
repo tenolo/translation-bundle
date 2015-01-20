@@ -1,13 +1,13 @@
 <?php
 
-namespace Tenolo\TranslationBundle\DependencyInjection;
+namespace Tenolo\Bundle\TranslationBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * Class Configuration
- * @package Tenolo\TranslationBundle\DependencyInjection
+ * @package Tenolo\Bundle\TranslationBundle\DependencyInjection
  * @author Nikita Loges
  * @company tenolo GbR
  */

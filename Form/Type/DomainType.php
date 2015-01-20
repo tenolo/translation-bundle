@@ -1,14 +1,14 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Form\Type;
+namespace Tenolo\Bundle\TranslationBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Tenolo\AdminControlPanelBundle\Form\Type\BaseType;
+use Tenolo\Bundle\AdminControlPanelBundle\Form\Type\BaseType;
 
 /**
  * Class DomainType
- * @package Tenolo\TranslationBundle\Form\Type
+ * @package Tenolo\Bundle\TranslationBundle\Form\Type
  * @author Nikita Loges
  * @company tenolo GbR
  * @date 06.08.14
@@ -45,7 +45,7 @@ class DomainType extends BaseType
         parent::setDefaultOptions($resolver);
 
         $resolver->setDefaults(array(
-            'data_class' => 'Tenolo\TranslationBundle\Entity\Domain',
+            'data_class' => 'Tenolo\Bundle\TranslationBundle\Entity\Domain',
         ));
     }
 

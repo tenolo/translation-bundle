@@ -1,6 +1,6 @@
 <?php
 
-namespace Tenolo\TranslationBundle\DependencyInjection;
+namespace Tenolo\Bundle\TranslationBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * Class TenoloTranslationExtension
- * @package Tenolo\TranslationBundle\DependencyInjection
+ * @package Tenolo\Bundle\TranslationBundle\DependencyInjection
  * @author Nikita Loges
  * @company tenolo GbR
  */

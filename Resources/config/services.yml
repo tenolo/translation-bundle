@@ -1,7 +1,7 @@
 parameters:
-    tenolo_translation.service.class: Tenolo\TranslationBundle\Service\TranslationService
-    tenolo_translation.database_loader.class: Tenolo\TranslationBundle\Translation\Loader\DatabaseLoader
-    tenolo_translation.twig_template_event.event.admin.class: Tenolo\TranslationBundle\EventListener\TwigTemplateEventListener
+    tenolo_translation.service.class: Tenolo\Bundle\TranslationBundle\Service\TranslationService
+    tenolo_translation.database_loader.class: Tenolo\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader
+    tenolo_translation.twig_template_event.event.admin.class: Tenolo\Bundle\TranslationBundle\EventListener\TwigTemplateEventListener
 
 services:
     tenolo_translation.service:

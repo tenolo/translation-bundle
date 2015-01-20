@@ -1,13 +1,13 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Controller;
+namespace Tenolo\Bundle\TranslationBundle\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Tenolo\AdminControlPanelBundle\Controller\BaseController;
+use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 
 /**
  * Class TokenController
- * @package Tenolo\TranslationBundle\Controller
+ * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
  * @Route("/translation/token", name="acp.translation.token")
@@ -19,7 +19,7 @@ class TokenController extends BaseController
     protected $entityName = "TenoloTranslationBundle:Token";
 
     /** @{inheritdoc} */
-    protected $formTypeClassName = 'Tenolo\TranslationBundle\Form\Type\TokenType';
+    protected $formTypeClassName = 'Tenolo\Bundle\TranslationBundle\Form\Type\TokenType';
 
     /** @{inheritdoc} */
     protected $icon = "flag";

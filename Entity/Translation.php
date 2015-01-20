@@ -1,19 +1,19 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Entity;
+namespace Tenolo\Bundle\TranslationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-use Tenolo\CoreBundle\Entity\BaseEntity;
-use Tenolo\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
+use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
+use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
 
 /**
  * Class Translation
- * @package Tenolo\TranslationBundle\Entity
+ * @package Tenolo\Bundle\TranslationBundle\Entity
  * @author Nikita Loges
  *
- * @ORM\Entity(repositoryClass="Tenolo\TranslationBundle\Repository\TranslationRepository")
+ * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository")
  * @ORM\HasLifecycleCallbacks
  * @TDTPA\Prefix(name="language")
  * @UniqueEntity(fields={"token", "language"}, message="Es kein nur eine Übersetzung pro Token und Sprache angelegt werden.")

@@ -1,19 +1,19 @@
 <?php
 
-namespace Tenolo\TranslationBundle\Entity;
+namespace Tenolo\Bundle\TranslationBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-use Tenolo\CoreBundle\Entity\BaseEntity;
+use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
 
 /**
  * Class Language
- * @package Tenolo\TranslationBundle\Entity
+ * @package Tenolo\Bundle\TranslationBundle\Entity
  * @author Nikita Loges
  *
- * @ORM\Entity(repositoryClass="Tenolo\TranslationBundle\Repository\LanguageRepository")
+ * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\LanguageRepository")
  * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields={"locale"}, message="Jede Sprache kann nur einmal verwendet werden.")
  */
