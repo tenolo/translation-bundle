@@ -1,9 +1,16 @@
 parameters:
+    tenolo_translation.menu_builder_listener.class: Tenolo\Bundle\TranslationBundle\EventListener\MenuStructureListener
     tenolo_translation.service.class: Tenolo\Bundle\TranslationBundle\Service\TranslationService
     tenolo_translation.database_loader.class: Tenolo\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader
-    tenolo_translation.twig_template_event.event.admin.class: Tenolo\Bundle\TranslationBundle\EventListener\TwigTemplateEventListener
 
 services:
+
+    tenolo_translation.menu_builder_listener:
+        class: %tenolo_translation.menu_builder_listener.class%
+        arguments: [ @service_container]
+        tags:
+            - { name: kernel.event_listener, event: shapecode.menu.builder.event, method: onMenuBuilder }
+
     tenolo_translation.service:
         class: %tenolo_translation.service.class%
         arguments: ["@service_container"]
@@ -13,10 +20,3 @@ services:
         arguments: ["@service_container"]
         tags:
             - { name: translation.loader, alias: db }
-
-    # twig events
-    tenolo_translation.twig_template_event.event.admin:
-        class: %tenolo_translation.twig_template_event.event.admin.class%
-        arguments: [@service_container]
-        tags:
-            - { name: kernel.event_listener, event: twig.template.event, method: onTemplateEvent }
