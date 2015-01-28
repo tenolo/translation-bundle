@@ -58,6 +58,8 @@ class MenuStructureListener extends BaseMenuStructureListener
         $singular = $this->getEntityTranslation('translation.domain.object.singular');
         $plural = $this->getEntityTranslation('translation.domain.object.plural');
 
+        $this->getMenuBuilderService()->addDivider($child);
+
         $this->addHeader($child, $plural);
         $this->addListEntityItem($child, $plural, 'acp.translation.domain.list');
         $this->addAddEntityItem($child, $singular, 'acp.translation.domain.add');
@@ -65,12 +67,16 @@ class MenuStructureListener extends BaseMenuStructureListener
         $singular = $this->getEntityTranslation('translation.token.object.singular');
         $plural = $this->getEntityTranslation('translation.token.object.plural');
 
+        $this->getMenuBuilderService()->addDivider($child);
+
         $this->addHeader($child, $plural);
         $this->addListEntityItem($child, $plural, 'acp.translation.token.list');
         $this->addAddEntityItem($child, $singular, 'acp.translation.token.add');
 
         $singular = $this->getEntityTranslation('translation.object.singular');
         $plural = $this->getEntityTranslation('translation.object.plural');
+
+        $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
         $this->addListEntityItem($child, $plural, 'acp.translation.list');
