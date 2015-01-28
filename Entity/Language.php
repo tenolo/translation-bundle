@@ -5,6 +5,7 @@ namespace Tenolo\Bundle\TranslationBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Intl\Intl;
 use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
 
@@ -83,7 +84,7 @@ class Language extends BaseEntity
      * @return \Symfony\Component\Intl\ResourceBundle\LocaleBundleInterface
      */
     protected function getLocaleBundle() {
-        return \Symfony\Component\Intl\Intl::getLocaleBundle();
+        return Intl::getLocaleBundle();
     }
 
 } 
