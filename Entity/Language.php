@@ -87,4 +87,12 @@ class Language extends BaseEntity
         return Intl::getLocaleBundle();
     }
 
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
 } 
