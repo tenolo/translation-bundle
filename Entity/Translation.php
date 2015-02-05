@@ -7,6 +7,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
 use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Translation
@@ -18,20 +21,18 @@ use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
  * @TDTPA\Prefix(name="language")
  * @UniqueEntity(fields={"token", "language"}, message="Es kein nur eine Übersetzung pro Token und Sprache angelegt werden.")
  */
-class Translation extends BaseEntity
+class Translation extends BaseEntity implements TranslationInterface
 {
 
     /**
-     * @var Token
-     *
+     * @var TokenInterface
      * @ORM\ManyToOne(targetEntity="Token", inversedBy="translations")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $token;
 
     /**
-     * @var Language
-     *
+     * @var LanguageInterface
      * @ORM\ManyToOne(targetEntity="Language", inversedBy="translations")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -39,14 +40,12 @@ class Translation extends BaseEntity
 
     /**
      * @var string
-     *
      * @ORM\Column(type="string")
      */
     protected $translation;
 
     /**
-     * @param string $translation
-     * @return $this
+     * {@inheritdoc}
      */
     public function setTranslation($translation)
     {
@@ -56,7 +55,7 @@ class Translation extends BaseEntity
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getTranslation()
     {
@@ -64,18 +63,15 @@ class Translation extends BaseEntity
     }
 
     /**
-     * @param Token $token
-     * @return $this
+     * {@inheritdoc}
      */
-    public function setToken(Token $token)
+    public function setToken(TokenInterface $token)
     {
         $this->token = $token;
-
-        return $this;
     }
 
     /**
-     * @return Token
+     * {@inheritdoc}
      */
     public function getToken()
     {
@@ -83,18 +79,15 @@ class Translation extends BaseEntity
     }
 
     /**
-     * @param Language $language
-     * @return $this
+     * {@inheritdoc}
      */
-    public function setLanguage(Language $language)
+    public function setLanguage(LanguageInterface $language)
     {
         $this->language = $language;
-
-        return $this;
     }
 
     /**
-     * @return Language
+     * {@inheritdoc}
      */
     public function getLanguage()
     {

@@ -3,11 +3,14 @@
 namespace Tenolo\Bundle\TranslationBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Intl\Intl;
 use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Language
@@ -18,20 +21,17 @@ use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
  * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields={"locale"}, message="Jede Sprache kann nur einmal verwendet werden.")
  */
-class Language extends BaseEntity
+class Language extends BaseEntity implements LanguageInterface
 {
 
     /**
      * @var string
-     *
-     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     protected $locale;
 
     /**
-     * @var ArrayCollection
-     *
+     * @var Collection|TranslationInterface[]
      * @ORM\OneToMany(targetEntity="Translation", mappedBy="language", cascade={"persist", "remove"})
      */
     protected $translations;
@@ -47,7 +47,7 @@ class Language extends BaseEntity
     }
 
     /**
-     * @return ArrayCollection
+     * {@inheritdoc}
      */
     public function getTranslations()
     {
@@ -55,7 +55,7 @@ class Language extends BaseEntity
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getLocale()
     {
@@ -63,32 +63,31 @@ class Language extends BaseEntity
     }
 
     /**
-     * @param string $locale
-     * @return $this
+     * {@inheritdoc}
      */
     public function setLocale($locale)
     {
         $this->locale = $locale;
-
-        return $this;
     }
 
     /**
-     * @return null|string
+     * {@inheritdoc}
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->getLocaleBundle()->getLocaleName($this->getLocale());
     }
 
     /**
-     * @return \Symfony\Component\Intl\ResourceBundle\LocaleBundleInterface
+     * {@inheritdoc}
      */
-    protected function getLocaleBundle() {
+    protected function getLocaleBundle()
+    {
         return Intl::getLocaleBundle();
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function __toString()
     {

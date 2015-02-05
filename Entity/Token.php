@@ -3,11 +3,14 @@
 namespace Tenolo\Bundle\TranslationBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
 use Tenolo\Bundle\CoreBundle\Entity\Scheme\Name;
 use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Token
@@ -23,16 +26,14 @@ class Token extends BaseEntity
     use Name;
 
     /**
-     * @var Domain
-     *
+     * @var DomainInterface
      * @ORM\ManyToOne(targetEntity="Domain", inversedBy="tokens")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $domain;
 
     /**
-     * @var ArrayCollection
-     *
+     * @var Collection|TranslationInterface
      * @ORM\OneToMany(targetEntity="Translation", mappedBy="token", cascade={"persist", "remove"})
      */
     protected $translations;
@@ -48,7 +49,7 @@ class Token extends BaseEntity
     }
 
     /**
-     * @return ArrayCollection
+     * {@inheritdoc}
      */
     public function getTranslations()
     {
@@ -56,18 +57,15 @@ class Token extends BaseEntity
     }
 
     /**
-     * @param Domain $domain
-     * @return $this
+     * {@inheritdoc}
      */
     public function setDomain(Domain $domain)
     {
         $this->domain = $domain;
-
-        return $this;
     }
 
     /**
-     * @return Domain
+     * {@inheritdoc}
      */
     public function getDomain()
     {
@@ -75,7 +73,7 @@ class Token extends BaseEntity
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function __toString()
     {
