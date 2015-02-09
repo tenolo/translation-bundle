@@ -25,8 +25,8 @@ class TranslationService extends AbstractService
     public function renewLanguageFakeFiles()
     {
         // find need data
-        $languages = $this->getLanguageRepository()->matchingAll();
-        $domains = $this->getDomainRepository()->matchingAll();
+        $languages = $this->getLanguageRepository()->findAll();
+        $domains = $this->getDomainRepository()->findAll();
 
         // file collection
         $languageFiles = new ArrayCollection();
