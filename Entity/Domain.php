@@ -17,9 +17,9 @@ use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
  * @package Tenolo\Bundle\CoreBundle\Entity
  * @author Nikita Loges
  *
+ * @TDTPA\Prefix(name="translation")
  * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\DomainRepository")
  * @ORM\HasLifecycleCallbacks
- * @TDTPA\Prefix(name="language")
  */
 class Domain extends BaseEntity implements DomainInterface
 {

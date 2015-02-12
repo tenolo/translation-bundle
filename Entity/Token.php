@@ -17,9 +17,9 @@ use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
  * @package Tenolo\Bundle\TranslationBundle\Entity
  * @author Nikita Loges
  *
+ * @TDTPA\Prefix(name="translation")
  * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\TokenRepository")
  * @ORM\HasLifecycleCallbacks
- * @TDTPA\Prefix(name="language")
  */
 class Token extends BaseEntity
 {

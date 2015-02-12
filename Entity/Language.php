@@ -11,12 +11,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
+use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
 
 /**
  * Class Language
  * @package Tenolo\Bundle\TranslationBundle\Entity
  * @author Nikita Loges
  *
+ * @TDTPA\Prefix(name="translation")
  * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\LanguageRepository")
  * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields={"locale"}, message="Jede Sprache kann nur einmal verwendet werden.")
