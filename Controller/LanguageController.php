@@ -5,6 +5,7 @@ namespace Tenolo\Bundle\TranslationBundle\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
+use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
 
 /**
  * Class LanguageController
@@ -16,6 +17,8 @@ use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 class LanguageController extends BaseController
 {
 
+    use EditAction;
+
     /** @{inheritdoc} */
     protected $entityName = "TenoloTranslationBundle:Language";
 
@@ -24,21 +27,6 @@ class LanguageController extends BaseController
 
     /** @{inheritdoc} */
     protected $icon = "flag";
-
-    /** @{inheritdoc} */
-    protected $listSearchableParams = array('locale');
-
-    /** @{inheritdoc} */
-    protected $wording = array(
-        'article' => array(
-            'singular' => 'translation.language.article.singular',
-            'plural' => 'translation.language.article.plural',
-        ),
-        'object' => array(
-            'singular' => 'translation.language.object.singular',
-            'plural' => 'translation.language.object.plural',
-        )
-    );
 
     /**
      * @Route("/cache/clear", name="cache.clear")
@@ -49,5 +37,22 @@ class LanguageController extends BaseController
         $this->get('tenolo_translation.service')->renewLanguageFakeFiles();
 
         return new RedirectResponse($this->generateUrl($this->routes['list']));
+    }
+
+    /**
+     * @{inheritdoc}
+     */
+    protected function getWording()
+    {
+        return array(
+            'article' => array(
+                'singular' => 'translation.language.article.singular',
+                'plural' => 'translation.language.article.plural',
+            ),
+            'object' => array(
+                'singular' => 'translation.language.object.singular',
+                'plural' => 'translation.language.object.plural',
+            )
+        );
     }
 } 

@@ -4,6 +4,7 @@ namespace Tenolo\Bundle\TranslationBundle\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
+use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
 
 /**
  * Class DomainController
@@ -15,6 +16,8 @@ use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 class DomainController extends BaseController
 {
 
+    use EditAction;
+
     /** @{inheritdoc} */
     protected $entityName = "TenoloTranslationBundle:Domain";
 
@@ -24,18 +27,20 @@ class DomainController extends BaseController
     /** @{inheritdoc} */
     protected $icon = "flag";
 
-    /** @{inheritdoc} */
-    protected $listSearchableParams = array('name');
-
-    /** @{inheritdoc} */
-    protected $wording = array(
-        'article' => array(
-            'singular' => 'translation.domain.article.singular',
-            'plural' => 'translation.domain.article.plural',
-        ),
-        'object' => array(
-            'singular' => 'translation.domain.object.singular',
-            'plural' => 'translation.domain.object.plural',
-        )
-    );
+    /**
+     * @{inheritdoc}
+     */
+    protected function getWording()
+    {
+        return array(
+            'article' => array(
+                'singular' => 'translation.domain.article.singular',
+                'plural' => 'translation.domain.article.plural',
+            ),
+            'object' => array(
+                'singular' => 'translation.domain.object.singular',
+                'plural' => 'translation.domain.object.plural',
+            )
+        );
+    }
 } 
