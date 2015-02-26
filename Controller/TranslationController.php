@@ -5,6 +5,8 @@ namespace Tenolo\Bundle\TranslationBundle\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
+use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
+use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
 
 /**
  * Class TranslationController
@@ -17,6 +19,8 @@ class TranslationController extends BaseController
 {
 
     use EditAction;
+    use RemoveAction;
+    use MarkAction;
 
     /** @{inheritdoc} */
     protected $entityName = "TenoloTranslationBundle:Translation";
