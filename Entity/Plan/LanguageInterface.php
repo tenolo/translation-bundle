@@ -6,9 +6,10 @@ use Doctrine\Common\Collections\Collection;
 use Tenolo\Bundle\CoreBundle\Entity\Plan\BaseEntityInterface;
 
 /**
- * Class LanguageInterface
+ * Interface LanguageInterface
  * @package Tenolo\Bundle\TranslationBundle\Entity\Plan
- * @author Nikita Loges, tenolo GbR
+ * @author Nikita Loges
+ * @company tenolo GbR
  */
 interface LanguageInterface extends BaseEntityInterface
 {

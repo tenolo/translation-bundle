@@ -7,9 +7,10 @@ use Tenolo\Bundle\CoreBundle\Entity\Plan\BaseEntityInterface;
 use Tenolo\Bundle\CoreBundle\Entity\Scheme\NameInterface;
 
 /**
- * Class DomainInterface
+ * Interface DomainInterface
  * @package Tenolo\Bundle\TranslationBundle\Entity\Plan
- * @author Nikita Loges, tenolo GbR
+ * @author Nikita Loges
+ * @company tenolo GbR
  */
 interface DomainInterface extends BaseEntityInterface, NameInterface {
 

@@ -1,0 +1,55 @@
+parameters:
+
+    # entities
+    tenolo_translation.entity.domain.class: Tenolo\Bundle\TranslationBundle\Entity\Domain
+    tenolo_translation.entity.language.class: Tenolo\Bundle\TranslationBundle\Entity\Language
+    tenolo_translation.entity.token.class: Tenolo\Bundle\TranslationBundle\Entity\Token
+    tenolo_translation.entity.translation.class: Tenolo\Bundle\TranslationBundle\Entity\Translation
+
+    # repositories
+    tenolo_translation.repository.domain.class: %tenolo_core.default_repository.class%
+    tenolo_translation.repository.language.class: %tenolo_core.default_repository.class%
+    tenolo_translation.repository.token.class: %tenolo_core.default_repository.class%
+    tenolo_translation.repository.translation.class: Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository
+
+services:
+
+    # domain
+    tenolo_translation.repository.domain:
+        class: %tenolo_translation.repository.domain.class%
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments: [%tenolo_translation.entity.domain.class%]
+
+    translation_domain_repository:
+        alias: tenolo_translation.repository.domain
+
+    # language
+    tenolo_translation.repository.language:
+        class: %tenolo_translation.repository.language.class%
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments: [%tenolo_translation.entity.language.class%]
+
+    translation_language_repository:
+        alias: tenolo_translation.repository.language
+
+    # token
+    tenolo_translation.repository.token:
+        class: %tenolo_translation.repository.token.class%
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments: [%tenolo_translation.entity.token.class%]
+
+    translation_token_repository:
+        alias: tenolo_translation.repository.token
+
+    # translation
+    tenolo_translation.repository.translation:
+        class: %tenolo_translation.repository.translation.class%
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments: [%tenolo_translation.entity.translation.class%]
+
+    translation_repository:
+        alias: tenolo_translation.repository.translation

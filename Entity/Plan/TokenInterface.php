@@ -7,9 +7,10 @@ use Tenolo\Bundle\CoreBundle\Entity\Plan\BaseEntityInterface;
 use Tenolo\Bundle\CoreBundle\Entity\Scheme\NameInterface;
 
 /**
- * Class TokenInterface
+ * Interface TokenInterface
  * @package Tenolo\Bundle\TranslationBundle\Entity\Plan
- * @author Nikita Loges, tenolo GbR
+ * @author Nikita Loges
+ * @company tenolo GbR
  */
 interface TokenInterface extends BaseEntityInterface, NameInterface {
 

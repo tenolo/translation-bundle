@@ -5,9 +5,10 @@ namespace Tenolo\Bundle\TranslationBundle\Entity\Plan;
 use Tenolo\Bundle\CoreBundle\Entity\Plan\BaseEntityInterface;
 
 /**
- * Class TranslationInterface
+ * Interface TranslationInterface
  * @package Tenolo\Bundle\TranslationBundle\Entity\Plan
- * @author Nikita Loges, tenolo GbR
+ * @author Nikita Loges
+ * @company tenolo GbR
  */
 interface TranslationInterface extends BaseEntityInterface
 {

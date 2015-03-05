@@ -14,6 +14,7 @@ use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
  * Class Translation
  * @package Tenolo\Bundle\TranslationBundle\Entity
  * @author Nikita Loges
+ * @company tenolo GbR
  *
  * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository")
  * @ORM\HasLifecycleCallbacks
@@ -24,14 +25,14 @@ class Translation extends BaseEntity implements TranslationInterface
 
     /**
      * @var TokenInterface
-     * @ORM\ManyToOne(targetEntity="Token", inversedBy="translations")
+     * @ORM\ManyToOne(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface", inversedBy="translations")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $token;
 
     /**
      * @var LanguageInterface
-     * @ORM\ManyToOne(targetEntity="Language", inversedBy="translations")
+     * @ORM\ManyToOne(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface", inversedBy="translations")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $language;

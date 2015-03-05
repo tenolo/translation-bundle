@@ -17,9 +17,10 @@ use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
  * Class Language
  * @package Tenolo\Bundle\TranslationBundle\Entity
  * @author Nikita Loges
+ * @company tenolo GbR
  *
  * @TDTPA\Prefix(name="translation")
- * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\LanguageRepository")
+ * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields={"locale"}, message="Jede Sprache kann nur einmal verwendet werden.")
  */
@@ -34,7 +35,7 @@ class Language extends BaseEntity implements LanguageInterface
 
     /**
      * @var Collection|TranslationInterface[]
-     * @ORM\OneToMany(targetEntity="Translation", mappedBy="language", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface", mappedBy="language", cascade={"persist", "remove"})
      */
     protected $translations;
 

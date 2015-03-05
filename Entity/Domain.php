@@ -14,11 +14,12 @@ use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
 
 /**
  * Class Domain
- * @package Tenolo\Bundle\CoreBundle\Entity
+ * @package Tenolo\Bundle\TranslationBundle\Entity
  * @author Nikita Loges
+ * @company tenolo GbR
  *
  * @TDTPA\Prefix(name="translation")
- * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\DomainRepository")
+ * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
 class Domain extends BaseEntity implements DomainInterface
@@ -27,7 +28,7 @@ class Domain extends BaseEntity implements DomainInterface
 
     /**
      * @var Collection|TokenInterface[]
-     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Token", mappedBy="domain", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface", mappedBy="domain", cascade={"persist", "remove"})
      */
     protected $tokens;
 
