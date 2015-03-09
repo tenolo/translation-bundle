@@ -22,7 +22,7 @@ class MenuStructureListener extends BaseMenuStructureListener
      */
     public function onMenuBuilder(MenuBuilderEvent $event)
     {
-        switch ($event->getMenuIdentifier()) {
+        switch ($event->getIdentifier()) {
             case 'navbar-top-left':
                 $this->buildNavbarTopLeft($event);
                 break;
@@ -34,17 +34,15 @@ class MenuStructureListener extends BaseMenuStructureListener
      */
     protected function buildNavbarTopLeft(MenuBuilderEvent $event)
     {
-        $factory = $event->getMenuFactory();
-        $root = $event->getMenuRoot();
+        $root = $event->getItem();
 
-        $this->addLanguageItems($factory, $root);
+        $this->addLanguageItems($root);
     }
 
     /**
-     * @param FactoryInterface $factory
      * @param ItemInterface $root
      */
-    protected function addLanguageItems(FactoryInterface $factory, ItemInterface $root)
+    protected function addLanguageItems(ItemInterface $root)
     {
         $singular = $this->getEntityTranslation('translation.language.object.singular');
         $plural = $this->getEntityTranslation('translation.language.object.plural');
