@@ -35,10 +35,10 @@ class TenoloTranslationExtension extends Extension implements PrependExtensionIn
 
         $doctrine['orm'] = array(
             'resolve_target_entities' => array(
-                'Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface' => '%tenolo_translation.entity.domain.class%',
-                'Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface' => '%tenolo_translation.entity.language.class%',
-                'Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface' => '%tenolo_translation.entity.token.class%',
-                'Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface' => '%tenolo_translation.entity.translation.class%',
+                'Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface' => '%tenolo_translation.target_entity_resolver.domain.class%',
+                'Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface' => '%tenolo_translation.target_entity_resolver.language.class%',
+                'Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface' => '%tenolo_translation.target_entity_resolver.token.class%',
+                'Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface' => '%tenolo_translation.target_entity_resolver.translation.class%',
             )
         );
 

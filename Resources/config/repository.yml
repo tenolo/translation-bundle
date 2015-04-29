@@ -1,10 +1,16 @@
 parameters:
 
+    # target entity resolver
+    tenolo_translation.target_entity_resolver.domain.class: Tenolo\Bundle\TranslationBundle\Entity\Domain
+    tenolo_translation.target_entity_resolver.language.class: Tenolo\Bundle\TranslationBundle\Entity\Language
+    tenolo_translation.target_entity_resolver.token.class: Tenolo\Bundle\TranslationBundle\Entity\Token
+    tenolo_translation.target_entity_resolver.translation.class: Tenolo\Bundle\TranslationBundle\Entity\Translation
+
     # entities
-    tenolo_translation.entity.domain.class: Tenolo\Bundle\TranslationBundle\Entity\Domain
-    tenolo_translation.entity.language.class: Tenolo\Bundle\TranslationBundle\Entity\Language
-    tenolo_translation.entity.token.class: Tenolo\Bundle\TranslationBundle\Entity\Token
-    tenolo_translation.entity.translation.class: Tenolo\Bundle\TranslationBundle\Entity\Translation
+    tenolo_translation.entity.domain.class: %tenolo_translation.target_entity_resolver.domain.class%
+    tenolo_translation.entity.language.class: %tenolo_translation.target_entity_resolver.language.class%
+    tenolo_translation.entity.token.class: %tenolo_translation.target_entity_resolver.token.class%
+    tenolo_translation.entity.translation.class: %tenolo_translation.target_entity_resolver.translation.class%
 
     # repositories
     tenolo_translation.repository.domain.class: %tenolo_core.default_repository.class%
