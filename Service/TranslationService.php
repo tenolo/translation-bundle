@@ -92,18 +92,18 @@ class TranslationService extends AbstractService
     }
 
     /**
-     * @return \Tenolo\Bundle\TranslationBundle\Repository\LanguageRepository
+     * @return \Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository
      */
     protected function getLanguageRepository()
     {
-        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Language');
+        return $this->getContainer()->get('translation_language_repository');
     }
 
     /**
-     * @return \Tenolo\Bundle\TranslationBundle\Repository\DomainRepository
+     * @return \Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository
      */
     protected function getDomainRepository()
     {
-        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Domain');
+        return $this->getContainer()->get('translation_domain_repository');
     }
 }
