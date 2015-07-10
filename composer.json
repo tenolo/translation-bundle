@@ -36,9 +36,9 @@
 
         "shapecode/repository-as-a-service": "~1.0",
 
-        "tenolo/core-bundle": "1.0.*@dev",
-        "tenolo/doctrine-table-prefix-bundle": "~1.0",
-        "tenolo/admin-control-panel-bundle": "1.0.*@dev"
+        "tenolo/core-bundle": "1.0.*",
+        "tenolo/doctrine-table-prefix-bundle": "1.0.*",
+        "tenolo/admin-control-panel-bundle": "1.0.*"
     },
     "require-dev": {
         "symfony/assetic-bundle": "~2.6",
