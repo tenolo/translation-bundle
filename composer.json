@@ -48,10 +48,5 @@
         "psr-4": {
             "Tenolo\\Bundle\\TranslationBundle\\": ""
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
-        }
     }
 }
