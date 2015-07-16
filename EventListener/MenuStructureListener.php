@@ -8,7 +8,7 @@ use Tenolo\Bundle\MenuBundle\EventListener\BaseMenuStructureListener;
 
 /**
  * Class MenuStructureListener
- * @package RabeConcept\Shop\TranslationBundle\EventListener
+ * @package Tenolo\Bundle\TranslationBundle\EventListener
  * @author Nikita Loges
  * @company tenolo GbR
  * @date 16.01.2015
