@@ -3,7 +3,7 @@
 namespace Tenolo\Bundle\TranslationBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Tenolo\Bundle\AdminControlPanelBundle\Form\Type\BaseType;
 
 /**
@@ -41,9 +41,9 @@ class LanguageType extends BaseType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults(array(
             'data_class' => 'Tenolo\Bundle\TranslationBundle\Entity\Language',

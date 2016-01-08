@@ -4,6 +4,8 @@ namespace Tenolo\Bundle\TranslationBundle\Translation\Loader;
 
 use Symfony\Component\Translation\Loader\LoaderInterface;
 use Symfony\Component\Translation\MessageCatalogue;
+use Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository;
+use Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository;
 use Tenolo\Bundle\CoreBundle\Service\AbstractService;
 use Tenolo\Bundle\TranslationBundle\Entity\Domain;
 use Tenolo\Bundle\TranslationBundle\Entity\Language;
@@ -20,27 +22,27 @@ class DatabaseLoader extends AbstractService implements LoaderInterface
 {
 
     /**
-     * @return \Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository
+     * @return TranslationRepository
      */
     protected function getTranslationRepository()
     {
-        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Translation');
+        return $this->getContainer()->get('translation_repository');
     }
 
     /**
-     * @return \Tenolo\Bundle\TranslationBundle\Repository\LanguageRepository
+     * @return BaseEntityRepository
      */
     protected function getLanguageRepository()
     {
-        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Language');
+        return $this->getContainer()->get('translation_language_repository');
     }
 
     /**
-     * @return \Tenolo\Bundle\TranslationBundle\Repository\DomainRepository
+     * @return BaseEntityRepository
      */
     protected function getDomainRepository()
     {
-        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Domain');
+        return $this->getContainer()->get('translation_domain_repository');
     }
 
     /**
