@@ -5,6 +5,8 @@ namespace Tenolo\Bundle\TranslationBundle\Form\Type\Entities;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Tenolo\Bundle\TranslationBundle\Entity\Token;
 
 /**
  * Class TokenEntityType
@@ -19,21 +21,13 @@ class TokenEntityType extends AbstractType
     /**
      * @inheritdoc
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        parent::buildForm($builder, $options);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function configureOptions(OptionsResolver $resolver)
     {
         parent::configureOptions($resolver);
 
         $resolver->setDefaults(array(
             'placeholder' => 'Wählen Sie einen Token aus',
-            'class' => 'Tenolo\Bundle\TranslationBundle\Entity\Token',
+            'class' => Token::class,
             'label' => 'Token'
         ));
     }
@@ -43,14 +37,6 @@ class TokenEntityType extends AbstractType
      */
     public function getParent()
     {
-        return 'entity';
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getName()
-    {
-        return 'tenolo_translation_token_entity';
+        return EntityType::class;
     }
 }

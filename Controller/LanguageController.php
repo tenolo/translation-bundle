@@ -8,6 +8,7 @@ use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
 use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
 use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
+use Tenolo\Bundle\TranslationBundle\Form\Type\LanguageType;
 
 /**
  * Class LanguageController
@@ -27,7 +28,7 @@ class LanguageController extends BaseController
     protected $entityName = "TenoloTranslationBundle:Language";
 
     /** @{inheritdoc} */
-    protected $formTypeClassName = 'Tenolo\Bundle\TranslationBundle\Form\Type\LanguageType';
+    protected $formType = LanguageType::class;
 
     /** @{inheritdoc} */
     protected $icon = "flag";

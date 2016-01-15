@@ -7,14 +7,14 @@
 {# template extend #}
 {% extends "TenoloAdminControlPanelBundle:List/Table:table.html.twig" %}
 
-{# {@inheritdoc} #}
+{# @inheritdoc #}
 {% block pageNavigationLeftButtons %}
     {{ parent() }}
 
     <a href="{{ path(route.cacheClear) }}" class="btn btn-danger">{{ fa('trash-o') }} {{ 'translation.cache.clear'|trans }}</a>
 {% endblock %}
 
-{# {@inheritdoc} #}
+{# @inheritdoc #}
 {% block tableRowHeader %}
     {{ table.header('form.list.column.header.name'|trans) }}
     {{ table.header(knp_pagination_sortable(objects, 'Länder-Code', 'p.locale')) }}

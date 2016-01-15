@@ -7,6 +7,7 @@ use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
 use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
 use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
+use Tenolo\Bundle\TranslationBundle\Form\Type\DomainType;
 
 /**
  * Class DomainController
@@ -26,7 +27,7 @@ class DomainController extends BaseController
     protected $entityName = "TenoloTranslationBundle:Domain";
 
     /** @{inheritdoc} */
-    protected $formTypeClassName = 'Tenolo\Bundle\TranslationBundle\Form\Type\DomainType';
+    protected $formType = DomainType::class;
 
     /** @{inheritdoc} */
     protected $icon = "flag";

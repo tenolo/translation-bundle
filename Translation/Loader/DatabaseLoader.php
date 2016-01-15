@@ -46,7 +46,7 @@ class DatabaseLoader extends AbstractService implements LoaderInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function load($resource, $locale, $domainName = 'messages')
     {

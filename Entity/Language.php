@@ -40,7 +40,7 @@ class Language extends BaseEntity implements LanguageInterface
     protected $translations;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function __construct()
     {
@@ -50,7 +50,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getTranslations()
     {
@@ -58,7 +58,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLocale()
     {
@@ -66,7 +66,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setLocale($locale)
     {
@@ -74,7 +74,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getName()
     {
@@ -82,7 +82,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function getLocaleBundle()
     {
@@ -90,7 +90,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function __toString()
     {

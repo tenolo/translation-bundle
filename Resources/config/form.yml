@@ -1,44 +1,10 @@
 parameters:
 
-    # widgets
-
-    # forms
-
-    # entities
-    tenolo_translation.form_type.entities.domain.class: Tenolo\Bundle\TranslationBundle\Form\Type\Entities\DomainEntityType
-    tenolo_translation.form_type.entities.language.class: Tenolo\Bundle\TranslationBundle\Form\Type\Entities\LanguageEntityType
-    tenolo_translation.form_type.entities.token.class: Tenolo\Bundle\TranslationBundle\Form\Type\Entities\TokenEntityType
-    tenolo_translation.form_type.entities.translation.class: Tenolo\Bundle\TranslationBundle\Form\Type\Entities\TranslationEntityType
-
+#    tenolo_translation.form_type.entities.domain.class: Tenolo\Bundle\TranslationBundle\Form\Type\Entities\DomainEntityType
 
 services:
-    #########
-    # widgets
-    #########
 
-    #########
-    # forms
-    #########
-
-    #########
-    # entities
-    #########
-    tenolo_translation.form_type.entities.domain:
-        class: %tenolo_translation.form_type.entities.domain.class%
-        tags:
-            - { name: form.type, alias: tenolo_translation_domain_entity }
-
-    tenolo_translation.form_type.entities.language:
-        class: %tenolo_translation.form_type.entities.language.class%
-        tags:
-            - { name: form.type, alias: tenolo_translation_language_entity }
-
-    tenolo_translation.form_type.entities.token:
-        class: %tenolo_translation.form_type.entities.token.class%
-        tags:
-            - { name: form.type, alias: tenolo_translation_token_entity }
-
-    tenolo_translation.form_type.entities.translation:
-        class: %tenolo_translation.form_type.entities.translation.class%
-        tags:
-            - { name: form.type, alias: tenolo_translation_translation_entity }
+#    tenolo_translation.form_type.entities.domain:
+#        class: %tenolo_translation.form_type.entities.domain.class%
+#        tags:
+#            - { name: form.type }

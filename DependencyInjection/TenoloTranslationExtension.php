@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 class TenoloTranslationExtension extends Extension implements PrependExtensionInterface
 {
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -27,7 +27,7 @@ class TenoloTranslationExtension extends Extension implements PrependExtensionIn
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritdoc
      */
     public function prepend(ContainerBuilder $container)
     {

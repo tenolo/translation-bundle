@@ -5,6 +5,11 @@ namespace Tenolo\Bundle\TranslationBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Tenolo\Bundle\AdminControlPanelBundle\Form\Type\BaseType;
+use Tenolo\Bundle\CoreBundle\Form\Type\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Tenolo\Bundle\TranslationBundle\Form\Type\Entities\DomainEntityType;
+use Tenolo\Bundle\TranslationBundle\Entity\Token;
 
 /**
  * Class TokenType
@@ -13,20 +18,20 @@ use Tenolo\Bundle\AdminControlPanelBundle\Form\Type\BaseType;
  * @company tenolo GbR
  * @date 06.08.14
  */
-class TokenType extends BaseType
+class TokenType extends AbstractType
 {
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         // basic data
-        $basic = $builder->create('basic', 'form', array(
+        $basic = $builder->create('basic', FormType::class, array(
             'label' => 'Allgemein',
             'inherit_data' => true
         ));
-        $basic->add('name', 'text', array(
+        $basic->add('name', TextType::class, array(
             'label' => 'Name',
             'attr' => array(
                 'help_text' => 'Der Name des Token.'
@@ -35,40 +40,33 @@ class TokenType extends BaseType
         $builder->add($basic);
 
         // basic data
-        $domain = $builder->create('domainWrapper', 'form', array(
+        $domain = $builder->create('domainWrapper', FormType::class, array(
             'label' => 'Domain',
             'inherit_data' => true
         ));
-        $domain->add('domain', 'entity', array(
-            'label' => 'Domain',
-            'property' => 'name',
-            'class' => 'TenoloTranslationBundle:Domain',
-            'attr' => array(
-                'help_text' => 'Wählen Sie die Domain aus.'
-            )
-        ));
+        $domain->add('domain', DomainEntityType::class, array());
         $builder->add($domain);
 
         parent::buildForm($builder, $options);
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         parent::configureOptions($resolver);
 
         $resolver->setDefaults(array(
-            'data_class' => 'Tenolo\Bundle\TranslationBundle\Entity\Token',
+            'data_class' => Token::class,
         ));
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
-    public function getName()
+    public function getParent()
     {
-        return 'language_token';
+        return BaseType::class;
     }
 } 

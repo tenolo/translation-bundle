@@ -3,8 +3,9 @@
 namespace Tenolo\Bundle\TranslationBundle\Form\Type\Entities;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Tenolo\Bundle\TranslationBundle\Entity\Translation;
 
 /**
  * Class TranslationEntityType
@@ -19,21 +20,13 @@ class TranslationEntityType extends AbstractType
     /**
      * @inheritdoc
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        parent::buildForm($builder, $options);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function configureOptions(OptionsResolver $resolver)
     {
         parent::configureOptions($resolver);
 
         $resolver->setDefaults(array(
             'placeholder' => 'Wählen Sie eine Übersetzung aus',
-            'class' => 'Tenolo\Bundle\TranslationBundle\Entity\Translation',
+            'class' => Translation::class,
             'label' => 'Übersetzung'
         ));
     }
@@ -43,14 +36,6 @@ class TranslationEntityType extends AbstractType
      */
     public function getParent()
     {
-        return 'entity';
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getName()
-    {
-        return 'tenolo_translation_translation_entity';
+        return EntityType::class;
     }
 }

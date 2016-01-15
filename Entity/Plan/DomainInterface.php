@@ -12,7 +12,8 @@ use Tenolo\Bundle\CoreBundle\Entity\Scheme\NameInterface;
  * @author Nikita Loges
  * @company tenolo GbR
  */
-interface DomainInterface extends BaseEntityInterface, NameInterface {
+interface DomainInterface extends BaseEntityInterface, NameInterface
+{
 
     /**
      * @return Collection|TokenInterface[]

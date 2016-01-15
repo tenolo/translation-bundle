@@ -1,7 +1,11 @@
 {
     "name": "tenolo/translation-bundle",
     "description": "",
-    "keywords": ["translation", "database", "tenolo"],
+    "keywords": [
+        "translation",
+        "database",
+        "tenolo"
+    ],
     "type": "symfony-bundle",
     "license": "MIT",
     "homepage": "http://tenolo.de",

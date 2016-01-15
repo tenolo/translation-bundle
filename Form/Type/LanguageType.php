@@ -5,6 +5,9 @@ namespace Tenolo\Bundle\TranslationBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Tenolo\Bundle\AdminControlPanelBundle\Form\Type\BaseType;
+use Tenolo\Bundle\CoreBundle\Form\Type\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\LocaleType;
 
 /**
  * Class LanguageType
@@ -13,20 +16,20 @@ use Tenolo\Bundle\AdminControlPanelBundle\Form\Type\BaseType;
  * @company tenolo GbR
  * @date 06.08.14
  */
-class LanguageType extends BaseType
+class LanguageType extends AbstractType
 {
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         // basic data
-        $basic = $builder->create('basic', 'form', array(
+        $basic = $builder->create('basic', FormType::class, array(
             'label' => 'Allgemein',
             'inherit_data' => true
         ));
-        $basic->add('locale', 'locale', array(
+        $basic->add('locale', LocaleType::class, array(
             'label' => 'Länder-Code',
             'attr' => array(
                 'placeholder' => 'Beispiel: de_DE',
@@ -39,7 +42,7 @@ class LanguageType extends BaseType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -51,10 +54,10 @@ class LanguageType extends BaseType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
-    public function getName()
+    public function getParent()
     {
-        return 'language';
+        return BaseType::class;
     }
 } 
