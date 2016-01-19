@@ -38,4 +38,12 @@ class DomainEntityType extends AbstractType
     {
         return EntityType::class;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getBlockPrefix()
+    {
+        return 'tenolo_translation_entity_'.\Symfony\Component\Form\AbstractType::getBlockPrefix();
+    }
 }

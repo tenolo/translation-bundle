@@ -73,4 +73,12 @@ class TranslationType extends AbstractType
     {
         return BaseType::class;
     }
-} 
+
+    /**
+     * @inheritDoc
+     */
+    public function getBlockPrefix()
+    {
+        return 'tenolo_translation_'.\Symfony\Component\Form\AbstractType::getBlockPrefix();
+    }
+}
