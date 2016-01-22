@@ -40,10 +40,10 @@
 
         "shapecode/repository-as-a-service": "~1.2",
 
-        "tenolo/core-bundle": "1.1.*@dev",
-        "tenolo/menu-bundle": "1.1.*@dev",
-        "tenolo/doctrine-table-prefix-bundle": "1.1.*@dev",
-        "tenolo/admin-control-panel-bundle": "1.1.*@dev"
+        "tenolo/core-bundle": "^2.0@dev",
+        "tenolo/menu-bundle": "^2.0@dev",
+        "tenolo/doctrine-table-prefix-bundle": "^2.0@dev",
+        "tenolo/admin-control-panel-bundle": "^2.0@dev"
     },
     "require-dev": {
         "symfony/assetic-bundle": "~2.7",
@@ -52,11 +52,6 @@
     "autoload": {
         "psr-4": {
             "Tenolo\\Bundle\\TranslationBundle\\": ""
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.1-dev"
         }
     }
 }
