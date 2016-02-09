@@ -46,12 +46,16 @@
         "tenolo/admin-control-panel-bundle": "^2.0@dev"
     },
     "require-dev": {
-        "symfony/assetic-bundle": "~2.7",
         "symfony/phpunit-bridge": "~2.8|~3.0"
     },
     "autoload": {
         "psr-4": {
             "Tenolo\\Bundle\\TranslationBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "2.0-dev"
         }
     }
 }
