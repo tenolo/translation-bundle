@@ -28,11 +28,13 @@
         "symfony/dependency-injection": "~2.8|~3.0",
         "symfony/form": "~2.8|~3.0",
         "symfony/validator": "~2.8|~3.0",
-        "symfony/event-dispatcher": "~2.8|~3.0",
         "symfony/translation": "~2.8|~3.0",
         "symfony/routing": "~2.8|~3.0",
+        "symfony/filesystem": "~2.8|~3.0",
+        "symfony/finder": "~2.8|~3.0",
         "symfony/http-foundation": "~2.8|~3.0",
         "symfony/options-resolver": "~2.8|~3.0",
+        "symfony/doctrine-bridge": "~2.8|~3.0",
         "symfony/twig-bundle": "~2.8|~3.0",
 
         "doctrine/orm": "~2.5",
@@ -42,12 +44,20 @@
 
         "tenolo/core-bundle": "^2.0@dev",
         "tenolo/menu-bundle": "^2.0@dev",
-        "tenolo/doctrine-table-prefix-bundle": "^2.0@dev",
-        "tenolo/admin-control-panel-bundle": "^2.0@dev"
+        "tenolo/doctrine-table-prefix-bundle": "^2.0@dev"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "~2.8|~3.0"
     },
+    "provide": {
+        "tenolo/admin-control-panel-bundle": "~2.0@dev"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://repo.tenolo.com/repo/private/"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Tenolo\\Bundle\\TranslationBundle\\": ""
@@ -57,5 +67,7 @@
         "branch-alias": {
             "dev-develop": "2.0-dev"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
