@@ -55,12 +55,17 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://repo.tenolo.com/repo/private/"
+            "url": "https://repo.tenolo.com/repo/private/"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Tenolo\\Bundle\\TranslationBundle\\": ""
+            "Tenolo\\Bundle\\TranslationBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tenolo\\Bundle\\TranslationBundle\\Tests\\": "tests/"
         }
     },
     "extra": {
