@@ -1,0 +1,22 @@
+{#
+ # @package Translation
+ # @author Nikita Loges
+ # @company tenolo GbR
+ #}
+
+{# template extend #}
+{% extends "TenoloAdminControlPanelBundle:List/Table:table.html.twig" %}
+
+{# @inheritdoc #}
+{% block tableRowHeader %}
+    {{ table.header(knp_pagination_sortable(objects, 'Wert', 'p.translation')) }}
+    {{ table.header(knp_pagination_sortable(objects, 'Token', 'p.token')) }}
+    {{ table.header(knp_pagination_sortable(objects, 'Sprache', 'p.language')) }}
+{% endblock %}
+
+{# @inheritdoc #}
+{% block itemContent %}
+    {{ table.rowcolumn('<a href="' ~ path(route.edit, { "id": o.id }) ~ '">' ~ o.translation ~ '</a>') }}
+    {{ table.rowcolumn(o.token.name) }}
+    {{ table.rowcolumn(o.language.name) }}
+{% endblock %}

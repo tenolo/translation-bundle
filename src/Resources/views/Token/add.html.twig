@@ -1,0 +1,14 @@
+{#
+ # @package Token
+ # @author Nikita Loges
+ # @company tenolo GbR
+ #}
+
+{# template extend #}
+{% extends "TenoloAdminControlPanelBundle:Form:add.html.twig" %}
+
+{# @inheritdoc #}
+{% block formContent %}
+    {{ macros.formgroup(form.basic) }}
+    {{ macros.formgroup(form.domainWrapper) }}
+{% endblock %}
