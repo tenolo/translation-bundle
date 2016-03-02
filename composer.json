@@ -49,8 +49,8 @@
     "require-dev": {
         "symfony/phpunit-bridge": "~2.8|~3.0"
     },
-    "provide": {
-        "tenolo/admin-control-panel-bundle": "~2.0@dev"
+    "suggest": {
+        "tenolo/admin-control-panel-bundle": "an admin control panel"
     },
     "repositories": [
         {
