@@ -11,17 +11,17 @@
 {% block pageNavigationLeftButtons %}
     {{ parent() }}
 
-    <a href="{{ path(route.cacheClear) }}" class="btn btn-danger">{{ fa('trash-o') }} {{ 'translation.cache.clear'|trans }}</a>
+    <a href="{{ path(route.cache_clear) }}" class="btn btn-danger">{{ fa('trash-o') }} {{ 'translation.cache.clear'|trans }}</a>
 {% endblock %}
 
 {# @inheritdoc #}
 {% block tableRowHeader %}
-    {{ table.header('form.list.column.header.name'|trans) }}
-    {{ table.header(knp_pagination_sortable(objects, 'Länder-Code', 'p.locale')) }}
+    <th>{{ 'form.list.column.header.name'|trans }}</th>
+    <th>{{ knp_pagination_sortable(objects, 'Länder-Code', 'p.locale') }}</th>
 {% endblock %}
 
 {% block itemContent %}
     {{ parent() }}
 
-    {{ table.rowcolumn(o.locale) }}
+    <td>{{ o.locale }}</td>
 {% endblock %}

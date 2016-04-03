@@ -14,7 +14,7 @@ use Tenolo\Bundle\TranslationBundle\Form\Type\TokenType;
  * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
- * @Route("/translation/token", name="acp.translation.token")
+ * @Route("/translation/token", name="tenolo_translation_acp_translation_token")
  */
 class TokenController extends BaseController
 {

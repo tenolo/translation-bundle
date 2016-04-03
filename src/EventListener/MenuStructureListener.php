@@ -49,11 +49,11 @@ class MenuStructureListener extends BaseMenuStructureListener
         $child = $this->addRootItem($root, $plural, 'flag');
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'acp.translation.language.list');
-        $this->addAddEntityItem($child, $singular, 'acp.translation.language.add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_translation_language_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_translation_language_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'acp.translation.language.edit'
+                    'tenolo_translation_acp_translation_language_edit'
                 )
             )
         ));
@@ -64,11 +64,11 @@ class MenuStructureListener extends BaseMenuStructureListener
         $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'acp.translation.domain.list');
-        $this->addAddEntityItem($child, $singular, 'acp.translation.domain.add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_translation_domain_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_translation_domain_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'acp.translation.domain.edit'
+                    'tenolo_translation_acp_translation_domain_edit'
                 )
             )
         ));
@@ -79,11 +79,11 @@ class MenuStructureListener extends BaseMenuStructureListener
         $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'acp.translation.token.list');
-        $this->addAddEntityItem($child, $singular, 'acp.translation.token.add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_translation_token_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_translation_token_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'acp.translation.token.edit'
+                    'tenolo_translation_acp_translation_token_edit'
                 )
             )
         ));
@@ -94,11 +94,11 @@ class MenuStructureListener extends BaseMenuStructureListener
         $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'acp.translation.list');
-        $this->addAddEntityItem($child, $singular, 'acp.translation.add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_translation_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_translation_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'acp.translation.edit'
+                    'tenolo_translation_acp_translation_edit'
                 )
             )
         ));

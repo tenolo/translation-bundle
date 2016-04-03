@@ -15,7 +15,7 @@ use Tenolo\Bundle\TranslationBundle\Form\Type\LanguageType;
  * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
- * @Route("/translation/language", name="acp.translation.language")
+ * @Route("/translation/language", name="tenolo_translation_acp_translation_language")
  */
 class LanguageController extends BaseController
 {
@@ -34,7 +34,7 @@ class LanguageController extends BaseController
     protected $icon = "flag";
 
     /**
-     * @Route("/cache/clear", name="cache.clear")
+     * @Route("/cache/clear", name="cache_clear")
      */
     public function clearCacheAction()
     {

@@ -14,7 +14,7 @@ use Tenolo\Bundle\TranslationBundle\Form\Type\TranslationType;
  * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
- * @Route("/translation", name="acp.translation")
+ * @Route("/translation", name="tenolo_translation_acp_translation")
  */
 class TranslationController extends BaseController
 {
