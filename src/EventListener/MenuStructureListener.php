@@ -49,11 +49,11 @@ class MenuStructureListener extends BaseMenuStructureListener
         $child = $this->addRootItem($root, $plural, 'flag');
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_translation_language_list');
-        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_translation_language_add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_language_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_language_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'tenolo_translation_acp_translation_language_edit'
+                    'tenolo_translation_acp_language_edit'
                 )
             )
         ));
@@ -64,11 +64,11 @@ class MenuStructureListener extends BaseMenuStructureListener
         $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_translation_domain_list');
-        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_translation_domain_add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_domain_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_domain_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'tenolo_translation_acp_translation_domain_edit'
+                    'tenolo_translation_acp_domain_edit'
                 )
             )
         ));
@@ -79,11 +79,11 @@ class MenuStructureListener extends BaseMenuStructureListener
         $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_translation_token_list');
-        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_translation_token_add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_token_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_token_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'tenolo_translation_acp_translation_token_edit'
+                    'tenolo_translation_acp_token_edit'
                 )
             )
         ));

@@ -15,7 +15,7 @@ use Tenolo\Bundle\TranslationBundle\Form\Type\LanguageType;
  * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
- * @Route("/translation/language", name="tenolo_translation_acp_translation_language")
+ * @Route("/translation/language", name="tenolo_translation_acp_language")
  */
 class LanguageController extends BaseController
 {

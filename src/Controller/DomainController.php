@@ -14,7 +14,7 @@ use Tenolo\Bundle\TranslationBundle\Form\Type\DomainType;
  * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
- * @Route("/translation/domain", name="tenolo_translation_acp_translation_domain")
+ * @Route("/translation/domain", name="tenolo_translation_acp_domain")
  */
 class DomainController extends BaseController
 {
