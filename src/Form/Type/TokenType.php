@@ -4,10 +4,10 @@ namespace Tenolo\Bundle\TranslationBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Tenolo\Bundle\AdminControlPanelBundle\Form\Type\BaseType;
 use Tenolo\Bundle\CoreBundle\Form\Type\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Tenolo\Bundle\CRUDAdminBundle\Form\Type\Forms\BaseFormType;
 use Tenolo\Bundle\TranslationBundle\Form\Type\Entities\DomainEntityType;
 use Tenolo\Bundle\TranslationBundle\Entity\Token;
 
@@ -67,7 +67,7 @@ class TokenType extends AbstractType
      */
     public function getParent()
     {
-        return BaseType::class;
+        return BaseFormType::class;
     }
 
     /**

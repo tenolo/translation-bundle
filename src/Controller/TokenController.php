@@ -3,49 +3,32 @@
 namespace Tenolo\Bundle\TranslationBundle\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
-use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
-use Tenolo\Bundle\TranslationBundle\Form\Type\TokenType;
+use Tenolo\Bundle\CRUDAdminBundle\Controller\CRUDController;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDEdit;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDList;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDRemove;
+use Tenolo\Bundle\TranslationBundle\CRUD\Configurator\TokenConfigurator;
 
 /**
  * Class TokenController
- * @package Tenolo\Bundle\TranslationBundle\Controller
- * @author Nikita Loges
  *
- * @Route("/translation/token", name="tenolo_translation_acp_token")
+ * @package Tenolo\Bundle\TranslationBundle\Controller
+ * @author  Nikita Loges
+ *
+ * @Route("/translation/token", name="tenolo_translation_token")
  */
-class TokenController extends BaseController
+class TokenController extends CRUDController
 {
 
-    use EditAction;
-    use RemoveAction;
-    use MarkAction;
-
-    /** @{inheritdoc} */
-    protected $entityName = "TenoloTranslationBundle:Token";
-
-    /** @{inheritdoc} */
-    protected $formType = TokenType::class;
-
-    /** @{inheritdoc} */
-    protected $icon = "flag";
+    use CRUDList;
+    use CRUDEdit;
+    use CRUDRemove;
 
     /**
-     * @{inheritdoc}
+     * @inheritDoc
      */
-    protected function getWording()
+    protected function getConfiguratorName()
     {
-        return array(
-            'article' => array(
-                'singular' => 'translation.token.article.singular',
-                'plural' => 'translation.token.article.plural',
-            ),
-            'object' => array(
-                'singular' => 'translation.token.object.singular',
-                'plural' => 'translation.token.object.plural',
-            )
-        );
+        return TokenConfigurator::class;
     }
 } 

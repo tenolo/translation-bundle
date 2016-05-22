@@ -1,18 +1,18 @@
-translation.language:
+translation_language:
   article:
     singular: Die
     plural: Die
   object:
     singular: Sprache
     plural: Sprachen
-translation.domain:
+translation_domain:
   article:
     singular: permission
     plural: Die
   object:
     singular: Domain
     plural: Domains
-translation.token:
+translation_token:
   article:
     singular: Die
     plural: Die

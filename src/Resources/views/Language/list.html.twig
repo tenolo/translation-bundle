@@ -5,13 +5,13 @@
  #}
 
 {# template extend #}
-{% extends "TenoloAdminControlPanelBundle:List/Table:table.html.twig" %}
+{% extends "TenoloCRUDAdminBundle:CRUD:list.html.twig" %}
 
 {# @inheritdoc #}
 {% block pageNavigationLeftButtons %}
     {{ parent() }}
 
-    <a href="{{ path(route.cache_clear) }}" class="btn btn-danger">{{ fa('trash-o') }} {{ 'translation.cache.clear'|trans }}</a>
+    <a href="{{ crud_route(configurator, 'cache_clear') }}" class="btn btn-danger">{{ fa('trash-o') }} {{ 'translation.cache.clear'|trans }}</a>
 {% endblock %}
 
 {# @inheritdoc #}

@@ -5,7 +5,7 @@
  #}
 
 {# template extend #}
-{% extends "TenoloAdminControlPanelBundle:List/Table:table.html.twig" %}
+{% extends "TenoloCRUDAdminBundle:CRUD:list.html.twig" %}
 
 {# @inheritdoc #}
 {% block tableRowHeader %}
@@ -16,7 +16,7 @@
 
 {# @inheritdoc #}
 {% block itemContent %}
-    <td><a href="{{ path(route.edit, { "id": o.id }) ~ }}">{{ o.translation }}</a></td>
+    <td><a href="{{ crud_route(configurator, 'edit', { "id": o.id }) }}">{{ o.translation }}</a></td>
     <td>{{ o.token.name }}</td>
     <td>{{ o.language.name }}</td>
 {% endblock %}

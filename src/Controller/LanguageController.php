@@ -4,34 +4,26 @@ namespace Tenolo\Bundle\TranslationBundle\Controller;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
-use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
-use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
-use Tenolo\Bundle\TranslationBundle\Form\Type\LanguageType;
+use Tenolo\Bundle\CRUDAdminBundle\Controller\CRUDController;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDEdit;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDList;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDRemove;
+use Tenolo\Bundle\TranslationBundle\CRUD\Configurator\LanguageConfigurator;
 
 /**
  * Class LanguageController
- * @package Tenolo\Bundle\TranslationBundle\Controller
- * @author Nikita Loges
  *
- * @Route("/translation/language", name="tenolo_translation_acp_language")
+ * @package Tenolo\Bundle\TranslationBundle\Controller
+ * @author  Nikita Loges
+ *
+ * @Route("/translation/language", name="tenolo_translation_language")
  */
-class LanguageController extends BaseController
+class LanguageController extends CRUDController
 {
 
-    use EditAction;
-    use RemoveAction;
-    use MarkAction;
-
-    /** @{inheritdoc} */
-    protected $entityName = "TenoloTranslationBundle:Language";
-
-    /** @{inheritdoc} */
-    protected $formType = LanguageType::class;
-
-    /** @{inheritdoc} */
-    protected $icon = "flag";
+    use CRUDList;
+    use CRUDEdit;
+    use CRUDRemove;
 
     /**
      * @Route("/cache/clear", name="cache_clear")
@@ -41,23 +33,14 @@ class LanguageController extends BaseController
         $this->get('tenolo_translation.service')->clearLanguageCache();
         $this->get('tenolo_translation.service')->renewLanguageFakeFiles();
 
-        return new RedirectResponse($this->generateUrl($this->routes['list']));
+        return new RedirectResponse($this->generateUrl($this->getConfigurator()->getRouteName('list')));
     }
 
     /**
-     * @{inheritdoc}
+     * @inheritDoc
      */
-    protected function getWording()
+    protected function getConfiguratorName()
     {
-        return array(
-            'article' => array(
-                'singular' => 'translation.language.article.singular',
-                'plural' => 'translation.language.article.plural',
-            ),
-            'object' => array(
-                'singular' => 'translation.language.object.singular',
-                'plural' => 'translation.language.object.plural',
-            )
-        );
+        return LanguageConfigurator::class;
     }
 } 

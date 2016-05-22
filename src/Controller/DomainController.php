@@ -3,49 +3,30 @@
 namespace Tenolo\Bundle\TranslationBundle\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
-use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
-use Tenolo\Bundle\TranslationBundle\Form\Type\DomainType;
+use Tenolo\Bundle\CRUDAdminBundle\Controller\CRUDController;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDEdit;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDList;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDRemove;
+use Tenolo\Bundle\TranslationBundle\CRUD\Configurator\DomainConfigurator;
 
 /**
  * Class DomainController
  * @package Tenolo\Bundle\TranslationBundle\Controller
  * @author Nikita Loges
  *
- * @Route("/translation/domain", name="tenolo_translation_acp_domain")
+ * @Route("/translation/domain", name="tenolo_translation_domain")
  */
-class DomainController extends BaseController
+class DomainController extends CRUDController
 {
-
-    use EditAction;
-    use RemoveAction;
-    use MarkAction;
-
-    /** @{inheritdoc} */
-    protected $entityName = "TenoloTranslationBundle:Domain";
-
-    /** @{inheritdoc} */
-    protected $formType = DomainType::class;
-
-    /** @{inheritdoc} */
-    protected $icon = "flag";
+    use CRUDList;
+    use CRUDEdit;
+    use CRUDRemove;
 
     /**
-     * @{inheritdoc}
+     * @inheritDoc
      */
-    protected function getWording()
+    protected function getConfiguratorName()
     {
-        return array(
-            'article' => array(
-                'singular' => 'translation.domain.article.singular',
-                'plural' => 'translation.domain.article.plural',
-            ),
-            'object' => array(
-                'singular' => 'translation.domain.object.singular',
-                'plural' => 'translation.domain.object.plural',
-            )
-        );
+        return DomainConfigurator::class;
     }
 } 

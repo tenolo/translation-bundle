@@ -3,49 +3,32 @@
 namespace Tenolo\Bundle\TranslationBundle\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
-use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
-use Tenolo\Bundle\TranslationBundle\Form\Type\TranslationType;
+use Tenolo\Bundle\CRUDAdminBundle\Controller\CRUDController;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDEdit;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDList;
+use Tenolo\Bundle\CRUDBundle\Controller\CRUDs\CRUDRemove;
+use Tenolo\Bundle\TranslationBundle\CRUD\Configurator\TranslationConfigurator;
 
 /**
  * Class TranslationController
- * @package Tenolo\Bundle\TranslationBundle\Controller
- * @author Nikita Loges
  *
- * @Route("/translation", name="tenolo_translation_acp_translation")
+ * @package Tenolo\Bundle\TranslationBundle\Controller
+ * @author  Nikita Loges
+ *
+ * @Route("/translation", name="tenolo_translation_translation")
  */
-class TranslationController extends BaseController
+class TranslationController extends CRUDController
 {
 
-    use EditAction;
-    use RemoveAction;
-    use MarkAction;
-
-    /** @{inheritdoc} */
-    protected $entityName = "TenoloTranslationBundle:Translation";
-
-    /** @{inheritdoc} */
-    protected $formType = TranslationType::class;
-
-    /** @{inheritdoc} */
-    protected $icon = "flag";
+    use CRUDList;
+    use CRUDEdit;
+    use CRUDRemove;
 
     /**
-     * @{inheritdoc}
+     * @inheritDoc
      */
-    protected function getWording()
+    protected function getConfiguratorName()
     {
-        return array(
-            'article' => array(
-                'singular' => 'translation.article.singular',
-                'plural' => 'translation.article.plural',
-            ),
-            'object' => array(
-                'singular' => 'translation.object.singular',
-                'plural' => 'translation.object.plural',
-            )
-        );
+        return TranslationConfigurator::class;
     }
 } 

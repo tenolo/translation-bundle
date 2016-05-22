@@ -43,47 +43,47 @@ class MenuStructureListener extends BaseMenuStructureListener
      */
     protected function addLanguageItems(ItemInterface $root)
     {
-        $singular = $this->getEntityTranslation('translation.language.object.singular');
-        $plural = $this->getEntityTranslation('translation.language.object.plural');
+        $singular = $this->getEntityTranslation('translation_language.object.singular');
+        $plural = $this->getEntityTranslation('translation_language.object.plural');
 
         $child = $this->addRootItem($root, $plural, 'flag');
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_language_list');
-        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_language_add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_language_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_language_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'tenolo_translation_acp_language_edit'
+                    'tenolo_translation_language_edit'
                 )
             )
         ));
 
-        $singular = $this->getEntityTranslation('translation.domain.object.singular');
-        $plural = $this->getEntityTranslation('translation.domain.object.plural');
+        $singular = $this->getEntityTranslation('translation_domain.object.singular');
+        $plural = $this->getEntityTranslation('translation_domain.object.plural');
 
         $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_domain_list');
-        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_domain_add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_domain_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_domain_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'tenolo_translation_acp_domain_edit'
+                    'tenolo_translation_domain_edit'
                 )
             )
         ));
 
-        $singular = $this->getEntityTranslation('translation.token.object.singular');
-        $plural = $this->getEntityTranslation('translation.token.object.plural');
+        $singular = $this->getEntityTranslation('translation_token.object.singular');
+        $plural = $this->getEntityTranslation('translation_token.object.plural');
 
         $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_token_list');
-        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_token_add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_token_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_token_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'tenolo_translation_acp_token_edit'
+                    'tenolo_translation_token_edit'
                 )
             )
         ));
@@ -94,11 +94,11 @@ class MenuStructureListener extends BaseMenuStructureListener
         $this->getMenuBuilderService()->addDivider($child);
 
         $this->addHeader($child, $plural);
-        $this->addListEntityItem($child, $plural, 'tenolo_translation_acp_translation_list');
-        $this->addAddEntityItem($child, $singular, 'tenolo_translation_acp_translation_add', array(), array(
+        $this->addListEntityItem($child, $plural, 'tenolo_translation_translation_list');
+        $this->addAddEntityItem($child, $singular, 'tenolo_translation_translation_add', array(), array(
             'extras' => array(
                 'routes' => array(
-                    'tenolo_translation_acp_translation_edit'
+                    'tenolo_translation_translation_edit'
                 )
             )
         ));
