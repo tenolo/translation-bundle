@@ -47,13 +47,12 @@
         "tenolo/menu-bundle": "^2.0@dev",
         "tenolo/crud-admin-bundle": "~2.0@dev",
         "tenolo/admin-control-panel-bundle": "~2.0@dev",
-        "tenolo/doctrine-table-prefix-bundle": "^2.0@dev"
+        "tenolo/doctrine-table-prefix-bundle": "^2.0@dev",
+
+        "mmoreram/symfony-bundle-dependencies": "~1.0"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "~2.8|~3.0"
-    },
-    "suggest": {
-        "tenolo/admin-control-panel-bundle": "an admin control panel"
     },
     "repositories": [
         {
