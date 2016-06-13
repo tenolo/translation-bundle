@@ -1,7 +1,11 @@
 {
     "name": "tenolo/translation-bundle",
-    "description": "",
-    "keywords": ["translation", "database", "tenolo"],
+    "description": "Adds a translation manager to teneolo components.",
+    "keywords": [
+        "translation",
+        "database",
+        "tenolo"
+    ],
     "type": "symfony-bundle",
     "license": "MIT",
     "homepage": "http://tenolo.de",
@@ -13,11 +17,12 @@
         },
         {
             "name": "Nikita Loges",
-            "email": "nl@tenolo.de"
+            "email": "nl@tenolo.de",
+            "homepage": "http://tenolo.de"
         }
     ],
     "require": {
-        "php": ">=5.4",
+        "php": "~5.4",
 
         "symfony/http-kernel": "~2.7",
         "symfony/config": "~2.7",
@@ -41,13 +46,24 @@
         "tenolo/admin-control-panel-bundle": "1.0.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.7"
+        "symfony/phpunit-bridge": "~2.7|~3.0"
     },
     "autoload": {
         "psr-4": {
-            "Tenolo\\Bundle\\TranslationBundle\\": ""
+            "Tenolo\\Bundle\\TranslationBundle\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tenolo\\Bundle\\TranslationBundle\\Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.tenolo.com/repo/private/"
+        }
+    ],
     "extra": {
         "branch-alias": {
             "dev-release/1.0": "1.0-dev"
