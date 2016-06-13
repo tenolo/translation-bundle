@@ -1,0 +1,27 @@
+{#
+ # @package Language
+ # @author Nikita Loges
+ # @company tenolo GbR
+ #}
+
+{# template extend #}
+{% extends "TenoloCRUDAdminBundle:CRUD:list.html.twig" %}
+
+{# @inheritdoc #}
+{% block pageNavigationLeftButtons %}
+    {{ parent() }}
+
+    <a href="{{ crud_route(configurator, 'cache_clear') }}" class="btn btn-danger">{{ fa('trash-o') }} {{ 'translation.cache.clear'|trans }}</a>
+{% endblock %}
+
+{# @inheritdoc #}
+{% block tableRowHeader %}
+    <th>{{ 'form.list.column.header.name'|trans }}</th>
+    <th>{{ knp_pagination_sortable(objects, 'Länder-Code', 'p.locale') }}</th>
+{% endblock %}
+
+{% block itemContent %}
+    {{ parent() }}
+
+    <td>{{ o.locale }}</td>
+{% endblock %}
