@@ -13,9 +13,9 @@ parameters:
     tenolo_translation.entity.translation.class: Tenolo\Bundle\TranslationBundle\Entity\Translation
 
     # repositories
-    tenolo_translation.repository.domain.class: %tenolo_core.default_repository.class%
-    tenolo_translation.repository.language.class: %tenolo_core.default_repository.class%
-    tenolo_translation.repository.token.class: %tenolo_core.default_repository.class%
+    tenolo_translation.repository.domain.class: %tenolo_entity.default_repository.class%
+    tenolo_translation.repository.language.class: %tenolo_entity.default_repository.class%
+    tenolo_translation.repository.token.class: %tenolo_entity.default_repository.class%
     tenolo_translation.repository.translation.class: Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository
 
 services:

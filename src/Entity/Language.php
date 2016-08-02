@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Intl\Intl;
 use Symfony\Component\Validator\Constraints as Assert;
-use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
+use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 

@@ -5,6 +5,8 @@ translation_language:
   object:
     singular: Sprache
     plural: Sprachen
+  list: Sprachen auflisten
+  add: Sprache hinzufügen
 translation_domain:
   article:
     singular: permission
@@ -12,6 +14,8 @@ translation_domain:
   object:
     singular: Domain
     plural: Domains
+  list: Domains auflisten
+  add: Domain hinzufügen
 translation_token:
   article:
     singular: Die
@@ -19,6 +23,8 @@ translation_token:
   object:
     singular: Token
     plural: Tokens
+  list: Tokens auflisten
+  add: Token hinzufügen
 translation:
   article:
     singular: Die
@@ -26,3 +32,5 @@ translation:
   object:
     singular: Übersetzung
     plural: Übersetzungen
+  list: Übersetzungen auflisten
+  add: Übersetzung hinzufügen
