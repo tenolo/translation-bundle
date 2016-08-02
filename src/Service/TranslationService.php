@@ -92,7 +92,7 @@ class TranslationService extends AbstractService
     }
 
     /**
-     * @return \Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository
+     * @return \Tenolo\Bundle\EntityBundle\Repository\BaseEntityRepository
      */
     protected function getLanguageRepository()
     {
@@ -100,7 +100,7 @@ class TranslationService extends AbstractService
     }
 
     /**
-     * @return \Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository
+     * @return \Tenolo\Bundle\EntityBundle\Repository\BaseEntityRepository
      */
     protected function getDomainRepository()
     {

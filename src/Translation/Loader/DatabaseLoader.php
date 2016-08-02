@@ -4,7 +4,7 @@ namespace Tenolo\Bundle\TranslationBundle\Translation\Loader;
 
 use Symfony\Component\Translation\Loader\LoaderInterface;
 use Symfony\Component\Translation\MessageCatalogue;
-use Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository;
+use Tenolo\Bundle\EntityBundle\Repository\BaseEntityRepository;
 use Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository;
 use Tenolo\Bundle\CoreBundle\Service\AbstractService;
 use Tenolo\Bundle\TranslationBundle\Entity\Domain;

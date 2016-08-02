@@ -2,7 +2,7 @@
 
 namespace Tenolo\Bundle\TranslationBundle\Repository;
 
-use Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository;
+use Tenolo\Bundle\EntityBundle\Repository\BaseEntityRepository;
 use Tenolo\Bundle\TranslationBundle\Entity\Domain;
 use Tenolo\Bundle\TranslationBundle\Entity\Language;
 
