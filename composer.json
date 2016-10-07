@@ -1,6 +1,6 @@
 {
     "name": "tenolo/translation-bundle",
-    "description": "Adds a translation manager to teneolo components.",
+    "description": "Adds a translation manager to tenolo components.",
     "keywords": [
         "translation",
         "database",
@@ -44,12 +44,12 @@
 
         "shapecode/repository-as-a-service": "~1.2",
 
-        "tenolo/core-bundle": "~2.0@dev",
-        "tenolo/menu-bundle": "~2.0@dev",
-        "tenolo/entity-bundle": "~2.0@dev",
-        "tenolo/crud-admin-bundle": "~2.0@dev",
-        "tenolo/admin-control-panel-bundle": "~2.0@dev",
-        "tenolo/doctrine-table-prefix-bundle": "~2.0@dev",
+        "tenolo/core-bundle": "~3.0",
+        "tenolo/menu-bundle": "~3.0",
+        "tenolo/entity-bundle": "~3.0",
+        "tenolo/crud-admin-bundle": "~3.0",
+        "tenolo/admin-control-panel-bundle": "~3.0",
+        "tenolo/doctrine-table-prefix-bundle": "~3.0",
 
         "mmoreram/symfony-bundle-dependencies": "~1.0"
     },
@@ -75,8 +75,8 @@
     "extra": {
         "branch-alias": {
             "dev-release/1.0": "1.0-dev",
-            "dev-release/1.1": "1.1-dev",
-            "dev-release/2.0": "2.0-dev"
+            "dev-release/2.0": "2.0-dev",
+            "dev-release/3.0": "3.0-dev"
         }
     },
     "minimum-stability": "dev",
