@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
 use Tenolo\Bundle\CoreBundle\Entity\Scheme\Name;
-use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
@@ -18,7 +17,6 @@ use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
  * @author Nikita Loges
  * @company tenolo GbR
  *
- * @TDTPA\Prefix(name="translation")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
