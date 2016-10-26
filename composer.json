@@ -1,6 +1,6 @@
 {
     "name": "tenolo/translation-bundle",
-    "description": "Adds a translation manager to teneolo components.",
+    "description": "Adds a translation manager to tenolo components.",
     "keywords": [
         "translation",
         "database",
@@ -41,9 +41,9 @@
 
         "shapecode/repository-as-a-service": "~1.0",
 
-        "tenolo/core-bundle": "1.0.*",
-        "tenolo/doctrine-table-prefix-bundle": "1.0.*",
-        "tenolo/admin-control-panel-bundle": "1.0.*"
+        "tenolo/core-bundle": "~1.0",
+        "tenolo/doctrine-table-prefix-bundle": "~1.0",
+        "tenolo/admin-control-panel-bundle": "~1.0"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "~2.7|~3.0"
