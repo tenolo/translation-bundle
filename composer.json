@@ -42,7 +42,7 @@
         "doctrine/orm": "~2.5",
         "doctrine/common": "~2.6",
 
-        "shapecode/repository-as-a-service": "~1.2",
+        "shapecode/repository-as-a-service": "~1.2|~2.0",
 
         "tenolo/core-bundle": "~3.0",
         "tenolo/menu-bundle": "~3.0",
