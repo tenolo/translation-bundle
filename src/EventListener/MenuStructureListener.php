@@ -24,7 +24,7 @@ class MenuStructureListener extends BaseMenuStructureListener
     {
         switch ($event->getIdentifier()) {
             case 'navbar-top-left':
-                $this->buildNavbarTopLeft($event);
+//                $this->buildNavbarTopLeft($event);
                 break;
         }
     }
