@@ -39,8 +39,6 @@
         "doctrine/orm": "~2.5",
         "doctrine/common": "~2.5",
 
-        "shapecode/repository-as-a-service": "~1.0|~2.0",
-
         "tenolo/core-bundle": "~2.0",
         "tenolo/doctrine-table-prefix-bundle": "~2.0",
         "tenolo/admin-control-panel-bundle": "~2.0"

@@ -8,6 +8,8 @@ use Symfony\Component\Finder\Finder;
 use Tenolo\Bundle\CoreBundle\Service\AbstractService;
 use Tenolo\Bundle\TranslationBundle\Entity\Domain;
 use Tenolo\Bundle\TranslationBundle\Entity\Language;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
 
 /**
  * Class TranslationService
@@ -92,18 +94,18 @@ class TranslationService extends AbstractService
     }
 
     /**
-     * @return \Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository
+     * @return \Tenolo\Bundle\EntityBundle\Repository\BaseEntityRepository
      */
     protected function getLanguageRepository()
     {
-        return $this->getContainer()->get('translation_language_repository');
+        return $this->findRepository(LanguageInterface::class);
     }
 
     /**
-     * @return \Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository
+     * @return \Tenolo\Bundle\EntityBundle\Repository\BaseEntityRepository
      */
     protected function getDomainRepository()
     {
-        return $this->getContainer()->get('translation_domain_repository');
+        return $this->findRepository(DomainInterface::class);
     }
 }
