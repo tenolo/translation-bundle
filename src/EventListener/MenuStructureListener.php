@@ -22,7 +22,7 @@ class MenuStructureListener extends BaseMenuStructureListener
     public function onMenuBuilder(MenuBuilderEvent $event)
     {
         switch ($event->getIdentifier()) {
-            case 'navbar-top-left':
+            case 'acp_topbar_left':
 //                $this->buildNavbarTopLeft($event);
                 break;
         }
