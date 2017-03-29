@@ -3,7 +3,7 @@
 namespace Tenolo\Bundle\TranslationBundle\EventListener;
 
 use Knp\Menu\ItemInterface;
-use Tenolo\Bundle\MenuBundle\Event\MenuBuilderEvent;
+use Tenolo\Bundle\MenuBundle\Event\MenuCreateEvent;
 use Tenolo\Bundle\MenuBundle\EventListener\BaseMenuStructureListener;
 
 /**
@@ -17,9 +17,9 @@ class MenuStructureListener extends BaseMenuStructureListener
 {
 
     /**
-     * @param MenuBuilderEvent $event
+     * @param MenuCreateEvent $event
      */
-    public function onMenuBuilder(MenuBuilderEvent $event)
+    public function onMenuBuilder(MenuCreateEvent $event)
     {
         switch ($event->getIdentifier()) {
             case 'acp_topbar_left':
@@ -29,9 +29,9 @@ class MenuStructureListener extends BaseMenuStructureListener
     }
 
     /**
-     * @param MenuBuilderEvent $event
+     * @param MenuCreateEvent $event
      */
-    protected function buildNavbarTopLeft(MenuBuilderEvent $event)
+    protected function buildNavbarTopLeft(MenuCreateEvent $event)
     {
         $root = $event->getItem();
 
