@@ -7,19 +7,18 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Intl\Intl;
-use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Language
+ *
  * @package Tenolo\Bundle\TranslationBundle\Entity
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
  *
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields={"locale"}, message="Jede Sprache kann nur einmal verwendet werden.")
  */
 class Language extends BaseEntity implements LanguageInterface
@@ -85,14 +84,6 @@ class Language extends BaseEntity implements LanguageInterface
     protected function getLocaleBundle()
     {
         return Intl::getLocaleBundle();
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function __toString()
-    {
-        return $this->getName();
     }
 
 } 

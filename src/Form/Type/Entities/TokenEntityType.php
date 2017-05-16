@@ -28,6 +28,7 @@ class TokenEntityType extends AbstractType
         $resolver->setDefaults(array(
             'placeholder' => 'Wählen Sie einen Token aus',
             'class' => Token::class,
+            'choice_label' => 'name',
             'label' => 'Token'
         ));
     }

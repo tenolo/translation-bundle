@@ -8,20 +8,22 @@ use Tenolo\Bundle\TranslationBundle\Entity\Language;
 
 /**
  * Class TranslationRepository
+ *
  * @package Tenolo\Bundle\TranslationBundle\Repository
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
- * @date 05.08.14
+ * @date    05.08.14
  */
 class TranslationRepository extends BaseEntityRepository
 {
 
     /**
      * @param Language $language
-     * @param Domain $domain
-     * @param array $orderBy
+     * @param Domain   $domain
+     * @param array    $orderBy
      * @param int|null $limit
      * @param int|null $offset
+     *
      * @return array
      */
     public function findAllByLanguageAndDomain(Language $language, Domain $domain, array $orderBy = null, $limit = null, $offset = null)

@@ -29,9 +29,4 @@ interface TokenInterface extends BaseEntityInterface, NameInterface
      * @return DomainInterface
      */
     public function getDomain();
-
-    /**
-     * @return string
-     */
-    public function __toString();
 }

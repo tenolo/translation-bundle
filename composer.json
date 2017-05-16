@@ -42,14 +42,8 @@
         "doctrine/orm": "~2.5",
         "doctrine/common": "~2.6",
 
-        "shapecode/repository-as-a-service": "~1.2|~2.0",
-
         "tenolo/core-bundle": "~3.0",
-        "tenolo/menu-bundle": "~3.0",
         "tenolo/entity-bundle": "~3.0",
-        "tenolo/crud-admin-bundle": "~3.0",
-        "tenolo/admin-control-panel-bundle": "~3.0",
-        "tenolo/doctrine-table-prefix-bundle": "~3.0",
 
         "mmoreram/symfony-bundle-dependencies": "~1.0"
     },

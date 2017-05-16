@@ -27,6 +27,7 @@ class DomainEntityType extends AbstractType
         $resolver->setDefaults(array(
             'placeholder' => 'Wählen Sie eine Domain aus',
             'class' => Domain::class,
+            'choice_label' => 'name',
             'label' => 'Domain'
         ));
     }

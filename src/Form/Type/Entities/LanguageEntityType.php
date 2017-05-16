@@ -27,6 +27,7 @@ class LanguageEntityType extends AbstractType
         $resolver->setDefaults(array(
             'placeholder' => 'Wählen Sie eine Sprache aus',
             'class' => Language::class,
+            'choice_label' => 'name',
             'label' => 'Sprache'
         ));
     }

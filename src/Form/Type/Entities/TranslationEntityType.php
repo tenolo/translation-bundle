@@ -27,6 +27,7 @@ class TranslationEntityType extends AbstractType
         $resolver->setDefaults(array(
             'placeholder' => 'Wählen Sie eine Übersetzung aus',
             'class' => Translation::class,
+            'choice_label' => 'translation',
             'label' => 'Übersetzung'
         ));
     }
