@@ -43,9 +43,6 @@
         "tenolo/doctrine-table-prefix-bundle": "~2.0",
         "tenolo/admin-control-panel-bundle": "~2.0"
     },
-    "require-dev": {
-        "symfony/phpunit-bridge": "~2.7|~3.0"
-    },
     "autoload": {
         "psr-4": {
             "Tenolo\\Bundle\\TranslationBundle\\": "src/"
