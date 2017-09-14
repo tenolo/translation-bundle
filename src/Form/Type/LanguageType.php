@@ -17,7 +17,7 @@ class LanguageType extends BaseType
 {
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -39,7 +39,7 @@ class LanguageType extends BaseType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
@@ -51,7 +51,7 @@ class LanguageType extends BaseType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getName()
     {

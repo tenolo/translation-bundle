@@ -44,7 +44,7 @@ class Translation extends BaseEntity implements TranslationInterface
     protected $translation;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setTranslation($translation)
     {
@@ -54,7 +54,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getTranslation()
     {
@@ -62,7 +62,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setToken(TokenInterface $token)
     {
@@ -70,7 +70,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getToken()
     {
@@ -78,7 +78,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setLanguage(LanguageInterface $language)
     {
@@ -86,7 +86,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLanguage()
     {

@@ -17,7 +17,7 @@ class DomainType extends BaseType
 {
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -38,7 +38,7 @@ class DomainType extends BaseType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
@@ -50,7 +50,7 @@ class DomainType extends BaseType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getName()
     {

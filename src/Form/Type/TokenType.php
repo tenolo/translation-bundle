@@ -17,7 +17,7 @@ class TokenType extends BaseType
 {
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -53,7 +53,7 @@ class TokenType extends BaseType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
@@ -65,7 +65,7 @@ class TokenType extends BaseType
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getName()
     {

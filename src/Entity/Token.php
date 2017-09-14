@@ -38,7 +38,7 @@ class Token extends BaseEntity
     protected $translations;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function __construct()
     {
@@ -48,7 +48,7 @@ class Token extends BaseEntity
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getTranslations()
     {
@@ -56,7 +56,7 @@ class Token extends BaseEntity
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setDomain(Domain $domain)
     {
@@ -64,7 +64,7 @@ class Token extends BaseEntity
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getDomain()
     {
@@ -72,7 +72,7 @@ class Token extends BaseEntity
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function __toString()
     {

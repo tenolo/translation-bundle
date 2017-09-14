@@ -31,7 +31,7 @@ class Domain extends BaseEntity implements DomainInterface
     protected $tokens;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function __construct()
     {
@@ -41,7 +41,7 @@ class Domain extends BaseEntity implements DomainInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getTokens()
     {

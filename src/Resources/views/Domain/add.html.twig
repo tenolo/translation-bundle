@@ -7,7 +7,7 @@
 {# template extend #}
 {% extends "TenoloAdminControlPanelBundle:Form:add.html.twig" %}
 
-{# {@inheritdoc} #}
+{# @inheritdoc #}
 {% block formContent %}
-    {{ macros.formgroup(form.basic) }}
+    {{ form_panel(form.basic) }}
 {% endblock %}
