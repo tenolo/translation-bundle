@@ -7,7 +7,7 @@ services:
 
     tenolo_translation.menu_builder_listener:
         class: %tenolo_translation.menu_builder_listener.class%
-        arguments: [ @service_container]
+        parent: tenolo_menu.event_listener.abstract_menu_structure
         tags:
             - { name: kernel.event_listener, event: tenolo_menu.menu_create, method: onMenuBuilder }
 
