@@ -43,7 +43,7 @@
         "doctrine/common": "~2.6",
 
         "tenolo/core-bundle": "~3.0",
-        "tenolo/entity-bundle": "~3.0",
+        "tenolo/entity-bundle": "~1.0",
 
         "mmoreram/symfony-bundle-dependencies": "~1.0"
     },
