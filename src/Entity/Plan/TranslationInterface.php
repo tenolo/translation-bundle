@@ -2,7 +2,7 @@
 
 namespace Tenolo\Bundle\TranslationBundle\Entity\Plan;
 
-use Tenolo\Bundle\CoreBundle\Entity\Plan\BaseEntityInterface;
+use Tenolo\Bundle\EntityBundle\Entity\Interfaces\BaseEntityInterface;
 
 /**
  * Interface TranslationInterface
