@@ -3,11 +3,12 @@
 namespace Tenolo\Bundle\TranslationBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
 use Tenolo\Bundle\EntityBundle\Entity\Scheme\Name;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
@@ -19,7 +20,7 @@ use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
  *
  * @ORM\Entity
  */
-class Token extends BaseEntity
+class Token extends BaseEntity implements TokenInterface
 {
     use Name;
 
@@ -31,7 +32,7 @@ class Token extends BaseEntity
     protected $domain;
 
     /**
-     * @var Collection|TranslationInterface
+     * @var ArrayCollection|PersistentCollection|TranslationInterface
      * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface", mappedBy="token", cascade={"persist", "remove"})
      */
     protected $translations;
@@ -57,7 +58,7 @@ class Token extends BaseEntity
     /**
      * @inheritdoc
      */
-    public function setDomain(Domain $domain)
+    public function setDomain(DomainInterface $domain)
     {
         $this->domain = $domain;
     }

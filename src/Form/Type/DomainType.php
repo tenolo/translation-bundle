@@ -2,18 +2,20 @@
 
 namespace Tenolo\Bundle\TranslationBundle\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Tenolo\Bundle\AdminControlPanelBundle\Form\Type\BaseType;
+use Tenolo\Bundle\TranslationBundle\Entity\Domain;
 
 /**
  * Class DomainType
+ *
  * @package Tenolo\Bundle\TranslationBundle\Form\Type
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
- * @date 06.08.14
  */
-class DomainType extends BaseType
+class DomainType extends AbstractType
 {
 
     /**
@@ -22,31 +24,43 @@ class DomainType extends BaseType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         // basic data
-        $basic = $builder->create('basic', 'form', array(
-            'label' => 'Allgemein',
+        $basic = $builder->create('basic', 'form', [
+            'label'        => 'Allgemein',
             'inherit_data' => true
-        ));
-        $basic->add('name', 'text', array(
+        ]);
+        $basic->add('name', 'text', [
             'label' => 'Name',
-            'attr' => array(
+            'attr'  => [
                 'help_text' => 'Der Name der Domain.'
-            )
-        ));
+            ]
+        ]);
         $builder->add($basic);
+    }
 
-        parent::buildForm($builder, $options);
+    /**
+     * @inheritDoc
+     */
+    public function getParent()
+    {
+        return BaseType::class;
     }
 
     /**
      * @inheritdoc
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        $resolver->setDefaults([
+            'data_class' => Domain::class,
+        ]);
+    }
 
-        $resolver->setDefaults(array(
-            'data_class' => 'Tenolo\Bundle\TranslationBundle\Entity\Domain',
-        ));
+    /**
+     * @inheritDoc
+     */
+    public function getBlockPrefix()
+    {
+        return $this->getName();
     }
 
     /**

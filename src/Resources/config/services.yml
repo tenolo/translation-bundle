@@ -1,22 +1,27 @@
-parameters:
-    tenolo_translation.menu_builder_listener.class: Tenolo\Bundle\TranslationBundle\EventListener\MenuStructureListener
-    tenolo_translation.service.class: Tenolo\Bundle\TranslationBundle\Service\TranslationService
-    tenolo_translation.database_loader.class: Tenolo\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader
-
 services:
 
-    tenolo_translation.menu_builder_listener:
-        class: %tenolo_translation.menu_builder_listener.class%
+    tenolo_translation.service:
+        class: Tenolo\Bundle\TranslationBundle\Service\TranslationService
+        arguments:
+            - '@kernel'
+            - '@doctrine'
+
+    tenolo_translation.database_loader:
+        class: Tenolo\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader
+        arguments: ["@doctrine"]
+        tags:
+            - { name: translation.loader, alias: db }
+
+    tenolo_translation.event_listener.menu_builder:
+        class: Tenolo\Bundle\TranslationBundle\EventListener\MenuStructureListener
         parent: tenolo_menu.event_listener.abstract_menu_structure
         tags:
             - { name: kernel.event_listener, event: tenolo_menu.menu_create, method: onMenuBuilder }
 
-    tenolo_translation.service:
-        class: %tenolo_translation.service.class%
-        arguments: ["@service_container"]
 
-    tenolo_translation.database_loader:
-        class: %tenolo_translation.database_loader.class%
-        arguments: ["@service_container"]
+    tenolo_translation.event_listener.renew_translation_cache:
+        class: Tenolo\Bundle\TranslationBundle\EventListener\RenewTranslationCacheListener
+        arguments:
+            - '@tenolo_translation.service'
         tags:
-            - { name: translation.loader, alias: db }
+            - { name: doctrine.event_subscriber, connection: default }

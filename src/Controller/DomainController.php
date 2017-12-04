@@ -5,13 +5,16 @@ namespace Tenolo\Bundle\TranslationBundle\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
-use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
 use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
+use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
+use Tenolo\Bundle\TranslationBundle\Entity\Domain;
+use Tenolo\Bundle\TranslationBundle\Form\Type\DomainType;
 
 /**
  * Class DomainController
+ *
  * @package Tenolo\Bundle\TranslationBundle\Controller
- * @author Nikita Loges
+ * @author  Nikita Loges
  *
  * @Route("/translation/domain", name="acp.translation.domain")
  */
@@ -23,10 +26,10 @@ class DomainController extends BaseController
     use MarkAction;
 
     /** @{inheritdoc} */
-    protected $entityName = "TenoloTranslationBundle:Domain";
+    protected $entityName = Domain::class;
 
     /** @{inheritdoc} */
-    protected $formTypeClassName = 'Tenolo\Bundle\TranslationBundle\Form\Type\DomainType';
+    protected $formTypeClassName = DomainType::class;
 
     /** @{inheritdoc} */
     protected $icon = "flag";
@@ -36,15 +39,15 @@ class DomainController extends BaseController
      */
     protected function getWording()
     {
-        return array(
-            'article' => array(
+        return [
+            'article' => [
                 'singular' => 'translation.domain.article.singular',
-                'plural' => 'translation.domain.article.plural',
-            ),
-            'object' => array(
+                'plural'   => 'translation.domain.article.plural',
+            ],
+            'object'  => [
                 'singular' => 'translation.domain.object.singular',
-                'plural' => 'translation.domain.object.plural',
-            )
-        );
+                'plural'   => 'translation.domain.object.plural',
+            ]
+        ];
     }
 } 

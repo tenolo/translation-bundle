@@ -3,9 +3,10 @@
 namespace Tenolo\Bundle\TranslationBundle\Service;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
-use Tenolo\Bundle\CoreBundle\Service\AbstractService;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Domain;
 use Tenolo\Bundle\TranslationBundle\Entity\Language;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
@@ -13,13 +14,29 @@ use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
 
 /**
  * Class TranslationService
+ *
  * @package Tenolo\Bundle\TranslationBundle\Service
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
- * @date 06.08.14
  */
-class TranslationService extends AbstractService
+class TranslationService implements TranslationServiceInterface
 {
+
+    /** @var KernelInterface */
+    protected $kernel;
+
+    /** @var ManagerRegistry */
+    protected $registry;
+
+    /**
+     * @param KernelInterface $kernel
+     * @param ManagerRegistry $registry
+     */
+    public function __construct(KernelInterface $kernel, ManagerRegistry $registry)
+    {
+        $this->kernel = $kernel;
+        $this->registry = $registry;
+    }
 
     /**
      *
@@ -37,7 +54,7 @@ class TranslationService extends AbstractService
         $filesystem = new Filesystem();
 
         // dirs
-        $appDir = $this->getKernel()->getRootDir();
+        $appDir = $this->kernel->getRootDir();
         $subDir = '/Resources/translations/';
         $completeDir = $appDir . $subDir;
 
@@ -48,14 +65,14 @@ class TranslationService extends AbstractService
 
         // find old language files
         $finder = new Finder();
-        $finder->in(array($completeDir))->files()->name('*.db');
+        $finder->in([$completeDir])->files()->name('*.db');
 
         // iterate languages and domains
         foreach ($languages as $language) {
             foreach ($domains as $domain) {
                 /**
                  * @var Language $language
-                 * @var Domain $domain
+                 * @var Domain   $domain
                  */
 
                 // add file
@@ -76,7 +93,7 @@ class TranslationService extends AbstractService
     public function clearLanguageCache()
     {
         // get cache dir
-        $cache = $this->getKernel()->getCacheDir();
+        $cache = $this->kernel->getCacheDir();
 
         $translationDir = $cache . "/translations";
 
@@ -86,7 +103,7 @@ class TranslationService extends AbstractService
         if ($filesystem->exists($translationDir)) {
 
             // remove all files
-            $finder->in(array($translationDir))->files();
+            $finder->in([$translationDir])->files();
             $filesystem->remove($finder);
 
             $filesystem->remove($translationDir);
@@ -98,7 +115,7 @@ class TranslationService extends AbstractService
      */
     protected function getLanguageRepository()
     {
-        return $this->findRepository(LanguageInterface::class);
+        return $this->registry->getRepository(LanguageInterface::class);
     }
 
     /**
@@ -106,6 +123,6 @@ class TranslationService extends AbstractService
      */
     protected function getDomainRepository()
     {
-        return $this->findRepository(DomainInterface::class);
+        return $this->registry->getRepository(DomainInterface::class);
     }
 }

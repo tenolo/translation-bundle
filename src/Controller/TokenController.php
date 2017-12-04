@@ -7,6 +7,8 @@ use Tenolo\Bundle\AdminControlPanelBundle\Controller\BaseController;
 use Tenolo\Bundle\CoreBundle\Controller\REST\EditAction;
 use Tenolo\Bundle\CoreBundle\Controller\REST\RemoveAction;
 use Tenolo\Bundle\CoreBundle\Controller\REST\MarkAction;
+use Tenolo\Bundle\TranslationBundle\Entity\Token;
+use Tenolo\Bundle\TranslationBundle\Form\Type\TokenType;
 
 /**
  * Class TokenController
@@ -23,10 +25,10 @@ class TokenController extends BaseController
     use MarkAction;
 
     /** @{inheritdoc} */
-    protected $entityName = "TenoloTranslationBundle:Token";
+    protected $entityName = Token::class;
 
     /** @{inheritdoc} */
-    protected $formTypeClassName = 'Tenolo\Bundle\TranslationBundle\Form\Type\TokenType';
+    protected $formTypeClassName = TokenType::class;
 
     /** @{inheritdoc} */
     protected $icon = "flag";
