@@ -18,7 +18,7 @@ use Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository;
 /**
  * Class DatabaseLoader
  *
- * @package Tenolo\Bundle\CoreBundle\Translation\Loader
+ * @package Tenolo\Bundle\TranslationBundle\Translation\Loader
  * @author  Nikita Loges
  * @company tenolo GbR
  */

@@ -26,7 +26,6 @@ class TenoloTranslationExtension extends Extension implements PrependExtensionIn
     {
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
-        $loader->load('form.yml');
     }
 
     /**
@@ -37,6 +36,9 @@ class TenoloTranslationExtension extends Extension implements PrependExtensionIn
         $container->prependExtensionConfig('doctrine', $this->getDoctrineConfig());
     }
 
+    /**
+     * @return array
+     */
     protected function getDoctrineConfig()
     {
         return [

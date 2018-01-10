@@ -2,22 +2,17 @@ services:
 
     tenolo_translation.service:
         class: Tenolo\Bundle\TranslationBundle\Service\TranslationService
+        public: true
         arguments:
             - '@kernel'
             - '@doctrine'
 
     tenolo_translation.database_loader:
         class: Tenolo\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader
-        arguments: ["@doctrine"]
+        arguments:
+            - "@doctrine"
         tags:
             - { name: translation.loader, alias: db }
-
-    tenolo_translation.event_listener.menu_builder:
-        class: Tenolo\Bundle\TranslationBundle\EventListener\MenuStructureListener
-        parent: tenolo_menu.event_listener.abstract_menu_structure
-        tags:
-            - { name: kernel.event_listener, event: tenolo_menu.menu_create, method: onMenuBuilder }
-
 
     tenolo_translation.event_listener.renew_translation_cache:
         class: Tenolo\Bundle\TranslationBundle\EventListener\RenewTranslationCacheListener

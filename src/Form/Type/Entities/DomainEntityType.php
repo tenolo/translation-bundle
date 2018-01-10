@@ -22,8 +22,6 @@ class DomainEntityType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        parent::configureOptions($resolver);
-
         $resolver->setDefaults([
             'placeholder' => 'Wählen Sie eine Domain aus',
             'class'       => Domain::class,
