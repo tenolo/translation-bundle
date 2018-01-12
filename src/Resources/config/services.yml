@@ -20,3 +20,10 @@ services:
             - '@tenolo_translation.service'
         tags:
             - { name: doctrine.event_subscriber, connection: default }
+
+    tenolo_translation.command.renew:
+        class: Tenolo\Bundle\TranslationBundle\Command\RenewCommand
+        arguments:
+            - '@tenolo_translation.service'
+        tags:
+            - { name: console.command }
