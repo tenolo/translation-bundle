@@ -15,10 +15,5 @@ interface TranslationServiceInterface
     /**
      *
      */
-    public function renewLanguageFakeFiles();
-
-    /**
-     *
-     */
     public function clearLanguageCache();
 }

@@ -19,7 +19,15 @@ services:
         arguments:
             - '@tenolo_translation.service'
         tags:
-            - { name: doctrine.event_subscriber, connection: default }
+            - { name: doctrine.event_subscriber }
+
+    tenolo_translation.event_listener.translator_resource:
+        class: Tenolo\Bundle\TranslationBundle\EventListener\TranslatorResourceListener
+        arguments:
+            - '@translator.default'
+            - '@doctrine'
+        tags:
+            - { name: kernel.event_subscriber }
 
     tenolo_translation.command.renew:
         class: Tenolo\Bundle\TranslationBundle\Command\RenewCommand

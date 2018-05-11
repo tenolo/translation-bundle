@@ -43,7 +43,6 @@ class RenewCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->translationService->clearLanguageCache();
-        $this->translationService->renewLanguageFakeFiles();
     }
 
 }
