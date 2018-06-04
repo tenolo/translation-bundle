@@ -68,7 +68,6 @@ class RenewTranslationCacheListener implements EventSubscriber
         }
 
         $this->translationService->clearLanguageCache();
-        $this->translationService->renewLanguageFakeFiles();
     }
 
     /**
