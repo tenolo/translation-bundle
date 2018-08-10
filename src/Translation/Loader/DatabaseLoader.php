@@ -2,49 +2,66 @@
 
 namespace Tenolo\Bundle\TranslationBundle\Translation\Loader;
 
+use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Common\Persistence\ObjectRepository;
 use Symfony\Component\Translation\Loader\LoaderInterface;
 use Symfony\Component\Translation\MessageCatalogue;
-use Tenolo\Bundle\CoreBundle\Service\AbstractService;
+use Tenolo\Bundle\EntityBundle\Repository\Interfaces\BaseEntityRepositoryInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Domain;
 use Tenolo\Bundle\TranslationBundle\Entity\Language;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Translation;
+use Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository;
 
 /**
  * Class DatabaseLoader
- * @package Tenolo\Bundle\CoreBundle\Translation\Loader
- * @author Nikita Loges
+ *
+ * @package Tenolo\Bundle\TranslationBundle\Translation\Loader
+ * @author  Nikita Loges
  * @company tenolo GbR
- * @date 05.08.14
  */
-class DatabaseLoader extends AbstractService implements LoaderInterface
+class DatabaseLoader implements LoaderInterface
 {
 
+    /** @var ManagerRegistry */
+    protected $registry;
+
     /**
-     * @return \Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository
+     * @param ManagerRegistry $registry
+     */
+    public function __construct(ManagerRegistry $registry)
+    {
+        $this->registry = $registry;
+    }
+
+    /**
+     * @return ObjectRepository|TranslationRepository
      */
     protected function getTranslationRepository()
     {
-        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Translation');
+        return $this->registry->getRepository(TranslationInterface::class);
     }
 
     /**
-     * @return \Tenolo\Bundle\TranslationBundle\Repository\LanguageRepository
+     * @return ObjectRepository|BaseEntityRepositoryInterface
      */
     protected function getLanguageRepository()
     {
-        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Language');
+        return $this->registry->getRepository(LanguageInterface::class);
     }
 
     /**
-     * @return \Tenolo\Bundle\TranslationBundle\Repository\DomainRepository
+     * @return ObjectRepository|BaseEntityRepositoryInterface
      */
     protected function getDomainRepository()
     {
-        return $this->getEntityManager()->getRepository('TenoloTranslationBundle:Domain');
+        return $this->registry->getRepository(DomainInterface::class);
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function load($resource, $locale, $domainName = 'messages')
     {
@@ -53,16 +70,17 @@ class DatabaseLoader extends AbstractService implements LoaderInterface
 
         /**
          * load on the db for the specified local
+         *
          * @var Language $language
          */
-        $language = $this->getLanguageRepository()->findOneBy(array(
+        $language = $this->getLanguageRepository()->findOneBy([
             'locale' => $locale
-        ));
+        ]);
 
         /** @var Domain $domain */
-        $domain = $this->getDomainRepository()->findOneBy(array(
+        $domain = $this->getDomainRepository()->findOneBy([
             'name' => $domainName
-        ));
+        ]);
 
         if (!$language || !$domain) {
             return $catalogue;

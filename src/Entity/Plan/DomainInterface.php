@@ -3,8 +3,8 @@
 namespace Tenolo\Bundle\TranslationBundle\Entity\Plan;
 
 use Doctrine\Common\Collections\Collection;
-use Tenolo\Bundle\CoreBundle\Entity\Plan\BaseEntityInterface;
-use Tenolo\Bundle\CoreBundle\Entity\Scheme\NameInterface;
+use Tenolo\Bundle\EntityBundle\Entity\Interfaces\BaseEntityInterface;
+use Tenolo\Bundle\EntityBundle\Entity\Interfaces\NameInterface;
 
 /**
  * Interface DomainInterface
@@ -12,7 +12,8 @@ use Tenolo\Bundle\CoreBundle\Entity\Scheme\NameInterface;
  * @author Nikita Loges
  * @company tenolo GbR
  */
-interface DomainInterface extends BaseEntityInterface, NameInterface {
+interface DomainInterface extends BaseEntityInterface, NameInterface
+{
 
     /**
      * @return Collection|TokenInterface[]

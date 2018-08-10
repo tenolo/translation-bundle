@@ -4,20 +4,19 @@ namespace Tenolo\Bundle\TranslationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
-use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
+use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Translation
+ *
  * @package Tenolo\Bundle\TranslationBundle\Entity
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
  *
  * @ORM\Entity(repositoryClass="Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository")
- * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields={"token", "language"}, message="Es kein nur eine Übersetzung pro Token und Sprache angelegt werden.")
  */
 class Translation extends BaseEntity implements TranslationInterface
@@ -44,17 +43,15 @@ class Translation extends BaseEntity implements TranslationInterface
     protected $translation;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setTranslation($translation)
     {
         $this->translation = $translation;
-
-        return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getTranslation()
     {
@@ -62,7 +59,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setToken(TokenInterface $token)
     {
@@ -70,7 +67,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getToken()
     {
@@ -78,7 +75,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setLanguage(LanguageInterface $language)
     {
@@ -86,7 +83,7 @@ class Translation extends BaseEntity implements TranslationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLanguage()
     {

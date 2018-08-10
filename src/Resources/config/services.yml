@@ -1,22 +1,36 @@
-parameters:
-    tenolo_translation.menu_builder_listener.class: Tenolo\Bundle\TranslationBundle\EventListener\MenuStructureListener
-    tenolo_translation.service.class: Tenolo\Bundle\TranslationBundle\Service\TranslationService
-    tenolo_translation.database_loader.class: Tenolo\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader
-
 services:
-
-    tenolo_translation.menu_builder_listener:
-        class: %tenolo_translation.menu_builder_listener.class%
-        arguments: [ @service_container]
-        tags:
-            - { name: kernel.event_listener, event: tenolo_menu.builder.build, method: onMenuBuilder }
-
     tenolo_translation.service:
-        class: %tenolo_translation.service.class%
-        arguments: ["@service_container"]
+        class: Tenolo\Bundle\TranslationBundle\Service\TranslationService
+        public: true
+        arguments:
+            - '@kernel'
+            - '@doctrine'
 
     tenolo_translation.database_loader:
-        class: %tenolo_translation.database_loader.class%
-        arguments: ["@service_container"]
+        class: Tenolo\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader
+        arguments:
+            - "@doctrine"
         tags:
             - { name: translation.loader, alias: db }
+
+    tenolo_translation.event_listener.renew_translation_cache:
+        class: Tenolo\Bundle\TranslationBundle\EventListener\RenewTranslationCacheListener
+        arguments:
+            - '@tenolo_translation.service'
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    tenolo_translation.event_listener.translator_resource:
+        class: Tenolo\Bundle\TranslationBundle\EventListener\TranslatorResourceListener
+        arguments:
+            - '@translator.default'
+            - '@doctrine'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    tenolo_translation.command.renew:
+        class: Tenolo\Bundle\TranslationBundle\Command\RenewCommand
+        arguments:
+            - '@tenolo_translation.service'
+        tags:
+            - { name: console.command }

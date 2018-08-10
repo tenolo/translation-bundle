@@ -3,8 +3,8 @@
 namespace Tenolo\Bundle\TranslationBundle\Entity\Plan;
 
 use Doctrine\Common\Collections\Collection;
-use Tenolo\Bundle\CoreBundle\Entity\Plan\BaseEntityInterface;
-use Tenolo\Bundle\CoreBundle\Entity\Scheme\NameInterface;
+use Tenolo\Bundle\EntityBundle\Entity\Interfaces\BaseEntityInterface;
+use Tenolo\Bundle\EntityBundle\Entity\Interfaces\NameInterface;
 
 /**
  * Interface TokenInterface
@@ -12,7 +12,8 @@ use Tenolo\Bundle\CoreBundle\Entity\Scheme\NameInterface;
  * @author Nikita Loges
  * @company tenolo GbR
  */
-interface TokenInterface extends BaseEntityInterface, NameInterface {
+interface TokenInterface extends BaseEntityInterface, NameInterface
+{
 
     /**
      * @return Collection|TranslationInterface
@@ -28,9 +29,4 @@ interface TokenInterface extends BaseEntityInterface, NameInterface {
      * @return DomainInterface
      */
     public function getDomain();
-
-    /**
-     * @return string
-     */
-    public function __toString();
 }

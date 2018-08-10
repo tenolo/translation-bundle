@@ -3,7 +3,7 @@
 namespace Tenolo\Bundle\TranslationBundle\Entity\Plan;
 
 use Doctrine\Common\Collections\Collection;
-use Tenolo\Bundle\CoreBundle\Entity\Plan\BaseEntityInterface;
+use Tenolo\Bundle\EntityBundle\Entity\Interfaces\BaseEntityInterface;
 
 /**
  * Interface LanguageInterface
@@ -33,9 +33,4 @@ interface LanguageInterface extends BaseEntityInterface
      * @return null|string
      */
     public function getName();
-
-    /**
-     * @return string
-     */
-    public function __toString();
 }

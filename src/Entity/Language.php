@@ -7,21 +7,18 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Intl\Intl;
-use Symfony\Component\Validator\Constraints as Assert;
-use Tenolo\Bundle\CoreBundle\Entity\BaseEntity;
+use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
-use Tenolo\Bundle\DoctrineTablePrefixBundle\Doctrine\Annotations as TDTPA;
 
 /**
  * Class Language
+ *
  * @package Tenolo\Bundle\TranslationBundle\Entity
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
  *
- * @TDTPA\Prefix(name="translation")
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields={"locale"}, message="Jede Sprache kann nur einmal verwendet werden.")
  */
 class Language extends BaseEntity implements LanguageInterface
@@ -40,7 +37,7 @@ class Language extends BaseEntity implements LanguageInterface
     protected $translations;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function __construct()
     {
@@ -50,7 +47,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getTranslations()
     {
@@ -58,7 +55,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLocale()
     {
@@ -66,7 +63,7 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setLocale($locale)
     {
@@ -74,15 +71,19 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getName()
     {
-        return $this->getLocaleBundle()->getLocaleName($this->getLocale());
+        $locale = $this->getLocaleBundle()->getLocaleName($this->getLocale());
+
+        if($locale === null) {
+            return $this->getLocale();
+        }
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function getLocaleBundle()
     {
@@ -90,11 +91,11 @@ class Language extends BaseEntity implements LanguageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function __toString()
     {
         return $this->getName();
     }
 
-} 
+}

@@ -2,16 +2,17 @@
 
 namespace Tenolo\Bundle\TranslationBundle\Form\Type\Entities;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Tenolo\Bundle\TranslationBundle\Entity\Domain;
 
 /**
  * Class DomainEntityType
+ *
  * @package Tenolo\Bundle\TranslationBundle\Form\Type\Entities
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
- * @date 14.08.2015
  */
 class DomainEntityType extends AbstractType
 {
@@ -19,23 +20,13 @@ class DomainEntityType extends AbstractType
     /**
      * @inheritdoc
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        parent::buildForm($builder, $options);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function configureOptions(OptionsResolver $resolver)
     {
-        parent::configureOptions($resolver);
-
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'placeholder' => 'Wählen Sie eine Domain aus',
-            'class' => 'Tenolo\Bundle\TranslationBundle\Entity\Domain',
-            'label' => 'Domain'
-        ));
+            'class'       => Domain::class,
+            'label'       => 'Domain'
+        ]);
     }
 
     /**
@@ -43,14 +34,22 @@ class DomainEntityType extends AbstractType
      */
     public function getParent()
     {
-        return 'entity';
+        return EntityType::class;
     }
 
     /**
-     * @inheritdoc
+     * @return string
      */
     public function getName()
     {
-        return 'tenolo_translation_domain_entity';
+        return $this->getBlockPrefix();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getBlockPrefix()
+    {
+        return 'tenolo_translation_entity_' . \Symfony\Component\Form\AbstractType::getBlockPrefix();
     }
 }

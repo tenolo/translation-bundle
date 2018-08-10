@@ -2,70 +2,29 @@
 
 namespace Tenolo\Bundle\TranslationBundle\Service;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
-use Tenolo\Bundle\CoreBundle\Service\AbstractService;
-use Tenolo\Bundle\TranslationBundle\Entity\Domain;
-use Tenolo\Bundle\TranslationBundle\Entity\Language;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class TranslationService
+ *
  * @package Tenolo\Bundle\TranslationBundle\Service
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
- * @date 06.08.14
  */
-class TranslationService extends AbstractService
+class TranslationService implements TranslationServiceInterface
 {
 
+    /** @var KernelInterface */
+    protected $kernel;
+
     /**
-     *
+     * @param KernelInterface $kernel
      */
-    public function renewLanguageFakeFiles()
+    public function __construct(KernelInterface $kernel)
     {
-        // find need data
-        $languages = $this->getLanguageRepository()->findAll();
-        $domains = $this->getDomainRepository()->findAll();
-
-        // file collection
-        $languageFiles = new ArrayCollection();
-
-        // filesystem
-        $filesystem = new Filesystem();
-
-        // dirs
-        $appDir = $this->getKernel()->getRootDir();
-        $subDir = '/Resources/translations/';
-        $completeDir = $appDir . $subDir;
-
-        // make dir
-        if (!$filesystem->exists($completeDir)) {
-            $filesystem->mkdir($completeDir);
-        }
-
-        // find old language files
-        $finder = new Finder();
-        $finder->in(array($completeDir))->files()->name('*.db');
-
-        // iterate languages and domains
-        foreach ($languages as $language) {
-            foreach ($domains as $domain) {
-                /**
-                 * @var Language $language
-                 * @var Domain $domain
-                 */
-
-                // add file
-                $languageFiles->add($completeDir . $domain->getName() . "." . $language->getLocale() . '.db');
-            }
-        }
-
-        // remove old files
-        $filesystem->remove($finder);
-
-        // touch all files
-        $filesystem->touch($languageFiles);
+        $this->kernel = $kernel;
     }
 
     /**
@@ -74,7 +33,7 @@ class TranslationService extends AbstractService
     public function clearLanguageCache()
     {
         // get cache dir
-        $cache = $this->getKernel()->getCacheDir();
+        $cache = $this->kernel->getCacheDir();
 
         $translationDir = $cache . "/translations";
 
@@ -84,26 +43,10 @@ class TranslationService extends AbstractService
         if ($filesystem->exists($translationDir)) {
 
             // remove all files
-            $finder->in(array($translationDir))->files();
+            $finder->in([$translationDir])->files();
             $filesystem->remove($finder);
 
             $filesystem->remove($translationDir);
         }
-    }
-
-    /**
-     * @return \Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository
-     */
-    protected function getLanguageRepository()
-    {
-        return $this->getContainer()->get('translation_language_repository');
-    }
-
-    /**
-     * @return \Tenolo\Bundle\CoreBundle\Repository\BaseEntityRepository
-     */
-    protected function getDomainRepository()
-    {
-        return $this->getContainer()->get('translation_domain_repository');
     }
 }
