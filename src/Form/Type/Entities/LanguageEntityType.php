@@ -2,17 +2,17 @@
 
 namespace Tenolo\Bundle\TranslationBundle\Form\Type\Entities;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Tenolo\Bundle\TranslationBundle\Entity\Language;
 
 /**
  * Class LanguageEntityType
+ *
  * @package Tenolo\Bundle\TranslationBundle\Form\Type\Entities
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
- * @date 14.08.2015
  */
 class LanguageEntityType extends AbstractType
 {
@@ -22,14 +22,11 @@ class LanguageEntityType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        parent::configureOptions($resolver);
-
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'placeholder' => 'Wählen Sie eine Sprache aus',
-            'class' => Language::class,
-            'choice_label' => 'name',
-            'label' => 'Sprache'
-        ));
+            'class'       => Language::class,
+            'label'       => 'Sprache'
+        ]);
     }
 
     /**
@@ -38,6 +35,14 @@ class LanguageEntityType extends AbstractType
     public function getParent()
     {
         return EntityType::class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
     }
 
     /**

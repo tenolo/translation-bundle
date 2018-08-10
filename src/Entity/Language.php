@@ -75,7 +75,11 @@ class Language extends BaseEntity implements LanguageInterface
      */
     public function getName()
     {
-        return $this->getLocaleBundle()->getLocaleName($this->getLocale());
+        $locale = $this->getLocaleBundle()->getLocaleName($this->getLocale());
+
+        if($locale === null) {
+            return $this->getLocale();
+        }
     }
 
     /**
@@ -86,4 +90,12 @@ class Language extends BaseEntity implements LanguageInterface
         return Intl::getLocaleBundle();
     }
 
-} 
+    /**
+     * @inheritdoc
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+}

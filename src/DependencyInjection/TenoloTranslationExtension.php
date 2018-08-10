@@ -33,15 +33,23 @@ class TenoloTranslationExtension extends Extension implements PrependExtensionIn
      */
     public function prepend(ContainerBuilder $container)
     {
-        $doctrine['orm'] = [
-            'resolve_target_entities' => [
-                BundleInterfaces\DomainInterface::class      => BundleEntities\Domain::class,
-                BundleInterfaces\LanguageInterface::class    => BundleEntities\Language::class,
-                BundleInterfaces\TokenInterface::class       => BundleEntities\Token::class,
-                BundleInterfaces\TranslationInterface::class => BundleEntities\Translation::class,
+        $container->prependExtensionConfig('doctrine', $this->getDoctrineConfig());
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDoctrineConfig()
+    {
+        return [
+            'orm' => [
+                'resolve_target_entities' => [
+                    BundleInterfaces\DomainInterface::class      => BundleEntities\Domain::class,
+                    BundleInterfaces\LanguageInterface::class    => BundleEntities\Language::class,
+                    BundleInterfaces\TokenInterface::class       => BundleEntities\Token::class,
+                    BundleInterfaces\TranslationInterface::class => BundleEntities\Translation::class,
+                ]
             ]
         ];
-
-        $container->prependExtensionConfig('doctrine', $doctrine);
     }
 }

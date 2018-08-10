@@ -2,18 +2,17 @@
 
 namespace Tenolo\Bundle\TranslationBundle\Form\Type\Entities;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Tenolo\Bundle\TranslationBundle\Entity\Token;
 
 /**
  * Class TokenEntityType
+ *
  * @package Tenolo\Bundle\TranslationBundle\Form\Type\Entities
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
- * @date 14.08.2015
  */
 class TokenEntityType extends AbstractType
 {
@@ -23,14 +22,11 @@ class TokenEntityType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        parent::configureOptions($resolver);
-
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'placeholder' => 'Wählen Sie einen Token aus',
-            'class' => Token::class,
-            'choice_label' => 'name',
-            'label' => 'Token'
-        ));
+            'class'       => Token::class,
+            'label'       => 'Token'
+        ]);
     }
 
     /**
@@ -42,10 +38,18 @@ class TokenEntityType extends AbstractType
     }
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+
+    /**
      * @inheritDoc
      */
     public function getBlockPrefix()
     {
-        return 'tenolo_translation_entity_'.\Symfony\Component\Form\AbstractType::getBlockPrefix();
+        return 'tenolo_translation_entity_' . \Symfony\Component\Form\AbstractType::getBlockPrefix();
     }
 }

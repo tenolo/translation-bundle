@@ -12,7 +12,6 @@ use Tenolo\Bundle\TranslationBundle\Entity\Language;
  * @package Tenolo\Bundle\TranslationBundle\Repository
  * @author  Nikita Loges
  * @company tenolo GbR
- * @date    05.08.14
  */
 class TranslationRepository extends BaseEntityRepository
 {
@@ -20,16 +19,14 @@ class TranslationRepository extends BaseEntityRepository
     /**
      * @param Language $language
      * @param Domain   $domain
-     * @param array    $orderBy
-     * @param int|null $limit
-     * @param int|null $offset
      *
      * @return array
      */
-    public function findAllByLanguageAndDomain(Language $language, Domain $domain, array $orderBy = null, $limit = null, $offset = null)
+    public function findAllByLanguageAndDomain(Language $language, Domain $domain)
     {
         $qb = $this->getQueryBuilder();
         $qb->join('p.token', 't');
+
         $qb->where($qb->expr()->eq('p.language', ':language'));
         $qb->andWhere($qb->expr()->eq('t.domain', ':domain'));
 
