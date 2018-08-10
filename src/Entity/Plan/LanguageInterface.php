@@ -33,9 +33,4 @@ interface LanguageInterface extends BaseEntityInterface
      * @return null|string
      */
     public function getName();
-
-    /**
-     * @return string
-     */
-    public function __toString();
 }

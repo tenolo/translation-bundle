@@ -35,12 +35,22 @@
         "symfony/filesystem": "~2.8|~3.0|~4.0",
         "symfony/finder": "~2.8|~3.0|~4.0",
         "symfony/console": "~2.8|~3.0|~4.0",
+        "symfony/validator": "~2.8|~3.0|~4.0",
+        "symfony/routing": "~2.8|~3.0|~4.0",
+        "symfony/http-foundation": "~2.8|~3.0|~4.0",
+        "symfony/twig-bundle": "~2.8|~3.0|~4.0",
 
         "doctrine/orm": "~2.5",
-        "doctrine/common": "~2.5",
+        "doctrine/common": "~2.6",
 
         "tenolo/entity-bundle": "~1.0"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.tenolo.com/"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Tenolo\\Bundle\\TranslationBundle\\": "src/"
@@ -51,16 +61,11 @@
             "Tenolo\\Bundle\\TranslationBundle\\Tests\\": "tests/"
         }
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://repo.tenolo.com/"
-        }
-    ],
     "extra": {
         "branch-alias": {
             "dev-release/1.0": "1.0-dev",
-            "dev-release/2.0": "2.0-dev"
+            "dev-release/2.0": "2.0-dev",
+            "dev-release/3.0": "3.0-dev"
         }
     },
     "minimum-stability": "dev",

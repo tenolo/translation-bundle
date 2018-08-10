@@ -1,5 +1,4 @@
 services:
-
     tenolo_translation.service:
         class: Tenolo\Bundle\TranslationBundle\Service\TranslationService
         public: true

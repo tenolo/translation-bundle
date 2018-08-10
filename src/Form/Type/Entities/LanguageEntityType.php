@@ -40,16 +40,16 @@ class LanguageEntityType extends AbstractType
     /**
      * @return string
      */
-    public function getBlockPrefix()
+    public function getName()
     {
-        return $this->getName();
+        return $this->getBlockPrefix();
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
-    public function getName()
+    public function getBlockPrefix()
     {
-        return 'tenolo_translation_language_entity';
+        return 'tenolo_translation_entity_'.\Symfony\Component\Form\AbstractType::getBlockPrefix();
     }
 }

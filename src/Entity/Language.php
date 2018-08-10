@@ -7,15 +7,15 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Intl\Intl;
-use Symfony\Component\Validator\Constraints as Assert;
 use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Language
+ *
  * @package Tenolo\Bundle\TranslationBundle\Entity
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
  *
  * @ORM\Entity
@@ -75,7 +75,11 @@ class Language extends BaseEntity implements LanguageInterface
      */
     public function getName()
     {
-        return $this->getLocaleBundle()->getLocaleName($this->getLocale());
+        $locale = $this->getLocaleBundle()->getLocaleName($this->getLocale());
+
+        if($locale === null) {
+            return $this->getLocale();
+        }
     }
 
     /**
@@ -94,4 +98,4 @@ class Language extends BaseEntity implements LanguageInterface
         return $this->getName();
     }
 
-} 
+}

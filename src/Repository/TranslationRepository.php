@@ -25,9 +25,8 @@ class TranslationRepository extends BaseEntityRepository
     public function findAllByLanguageAndDomain(Language $language, Domain $domain)
     {
         $qb = $this->getQueryBuilder();
-        
         $qb->join('p.token', 't');
-        
+
         $qb->where($qb->expr()->eq('p.language', ':language'));
         $qb->andWhere($qb->expr()->eq('t.domain', ':domain'));
 

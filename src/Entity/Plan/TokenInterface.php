@@ -12,7 +12,8 @@ use Tenolo\Bundle\EntityBundle\Entity\Interfaces\NameInterface;
  * @author Nikita Loges
  * @company tenolo GbR
  */
-interface TokenInterface extends BaseEntityInterface, NameInterface {
+interface TokenInterface extends BaseEntityInterface, NameInterface
+{
 
     /**
      * @return Collection|TranslationInterface
@@ -28,9 +29,4 @@ interface TokenInterface extends BaseEntityInterface, NameInterface {
      * @return DomainInterface
      */
     public function getDomain();
-
-    /**
-     * @return string
-     */
-    public function __toString();
 }
