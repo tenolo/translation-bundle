@@ -95,7 +95,7 @@ class Language extends BaseEntity implements LanguageInterface
      */
     public function __toString()
     {
-        return $this->getName();
+        return (string)$this->getName();
     }
 
 }
