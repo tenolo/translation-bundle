@@ -76,6 +76,6 @@ class Token extends BaseEntity implements TokenInterface
      */
     public function __toString()
     {
-        return $this->getDomain()->getName() . ': ' . $this->getName();
+        return $this->getName();
     }
 } 

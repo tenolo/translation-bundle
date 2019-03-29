@@ -80,6 +80,8 @@ class Language extends BaseEntity implements LanguageInterface
         if($locale === null) {
             return $this->getLocale();
         }
+
+        return $locale;
     }
 
     /**
