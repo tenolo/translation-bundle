@@ -35,7 +35,7 @@ class TranslationService implements TranslationServiceInterface
         // get cache dir
         $cache = $this->kernel->getCacheDir();
 
-        $translationDir = $cache . "/translations";
+        $translationDir = $cache.'/translations';
 
         $finder = new Finder();
         $filesystem = new Filesystem();

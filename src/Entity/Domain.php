@@ -7,8 +7,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
 use Tenolo\Bundle\EntityBundle\Entity\Scheme\Name;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
 
 /**
  * Class Domain
@@ -25,7 +23,7 @@ class Domain extends BaseEntity implements DomainInterface
 
     /**
      * @var Collection|TokenInterface[]
-     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface", mappedBy="domain", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\TokenInterface", mappedBy="domain", cascade={"persist", "remove"})
      */
     protected $tokens;
 

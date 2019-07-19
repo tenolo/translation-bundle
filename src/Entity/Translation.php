@@ -5,9 +5,6 @@ namespace Tenolo\Bundle\TranslationBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Translation
@@ -24,14 +21,14 @@ class Translation extends BaseEntity implements TranslationInterface
 
     /**
      * @var TokenInterface
-     * @ORM\ManyToOne(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface", inversedBy="translations")
+     * @ORM\ManyToOne(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\TokenInterface", inversedBy="translations")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $token;
 
     /**
      * @var LanguageInterface
-     * @ORM\ManyToOne(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface", inversedBy="translations")
+     * @ORM\ManyToOne(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\LanguageInterface", inversedBy="translations")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $language;

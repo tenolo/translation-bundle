@@ -7,9 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
 use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
 use Tenolo\Bundle\EntityBundle\Entity\Scheme\Name;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Token
@@ -26,14 +23,14 @@ class Token extends BaseEntity implements TokenInterface
 
     /**
      * @var DomainInterface
-     * @ORM\ManyToOne(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface", inversedBy="tokens")
+     * @ORM\ManyToOne(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\DomainInterface", inversedBy="tokens")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $domain;
 
     /**
      * @var ArrayCollection|PersistentCollection|TranslationInterface
-     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface", mappedBy="token", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\TranslationInterface", mappedBy="token", cascade={"persist", "remove"})
      */
     protected $translations;
 

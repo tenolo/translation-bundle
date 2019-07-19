@@ -8,8 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Intl\Intl;
 use Tenolo\Bundle\EntityBundle\Entity\BaseEntity;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
 
 /**
  * Class Language
@@ -32,7 +30,7 @@ class Language extends BaseEntity implements LanguageInterface
 
     /**
      * @var Collection|TranslationInterface[]
-     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface", mappedBy="language", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Tenolo\Bundle\TranslationBundle\Entity\TranslationInterface", mappedBy="language", cascade={"persist", "remove"})
      */
     protected $translations;
 

@@ -3,14 +3,12 @@
 namespace Tenolo\Bundle\TranslationBundle\EventListener;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\Common\Persistence\ObjectRepository;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Translation\Translator;
-use Tenolo\Bundle\EntityBundle\Repository\BaseEntityRepository;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\DomainInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\LanguageInterface;
 
 /**
  * Class TranslatorResourceListener
@@ -44,7 +42,7 @@ class TranslatorResourceListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            KernelEvents::REQUEST => 'addResources'
+            KernelEvents::REQUEST => 'addResources',
         ];
     }
 
@@ -53,35 +51,22 @@ class TranslatorResourceListener implements EventSubscriberInterface
      */
     public function addResources(GetResponseEvent $event)
     {
+        $langRepo = $this->registry->getRepository(LanguageInterface::class);
+        $domainRepo = $this->registry->getRepository(DomainInterface::class);
+
         /** @var LanguageInterface[] $languages */
-        $languages = $this->getLanguageRepository()->findAll();
+        $languages = $langRepo->findAll();
 
         /** @var DomainInterface[] $domains */
-        $domains = $this->getDomainRepository()->findAll();
+        $domains = $domainRepo->findAll();
 
         // iterate languages and domains
         foreach ($languages as $language) {
             foreach ($domains as $domain) {
-                $file = $domain->getName() . "." . $language->getLocale() . '.db';
+                $file = $domain->getName().".".$language->getLocale().'.db';
                 $this->translator->addResource('db', $file, $language->getLocale(), $domain->getName());
             }
         }
-    }
-
-    /**
-     * @return ObjectRepository|BaseEntityRepository
-     */
-    protected function getLanguageRepository()
-    {
-        return $this->registry->getRepository(LanguageInterface::class);
-    }
-
-    /**
-     * @return ObjectRepository|BaseEntityRepository
-     */
-    protected function getDomainRepository()
-    {
-        return $this->registry->getRepository(DomainInterface::class);
     }
 
 }

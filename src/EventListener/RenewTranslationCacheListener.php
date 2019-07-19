@@ -4,10 +4,10 @@ namespace Tenolo\Bundle\TranslationBundle\EventListener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TokenInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\DomainInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\LanguageInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\TokenInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\TranslationInterface;
 use Tenolo\Bundle\TranslationBundle\Service\TranslationServiceInterface;
 
 /**

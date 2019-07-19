@@ -1,13 +1,13 @@
 <?php
 
-namespace Tenolo\Bundle\TranslationBundle\Entity\Plan;
+namespace Tenolo\Bundle\TranslationBundle\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Tenolo\Bundle\EntityBundle\Entity\Interfaces\BaseEntityInterface;
 
 /**
  * Interface LanguageInterface
- * @package Tenolo\Bundle\TranslationBundle\Entity\Plan
+ * @package Tenolo\Bundle\TranslationBundle\Entity
  * @author Nikita Loges
  * @company tenolo GbR
  */

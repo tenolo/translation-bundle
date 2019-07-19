@@ -9,9 +9,9 @@ use Symfony\Component\Translation\MessageCatalogue;
 use Tenolo\Bundle\EntityBundle\Repository\Interfaces\BaseEntityRepositoryInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Domain;
 use Tenolo\Bundle\TranslationBundle\Entity\Language;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\DomainInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\LanguageInterface;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan\TranslationInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\DomainInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\LanguageInterface;
+use Tenolo\Bundle\TranslationBundle\Entity\TranslationInterface;
 use Tenolo\Bundle\TranslationBundle\Entity\Translation;
 use Tenolo\Bundle\TranslationBundle\Repository\TranslationRepository;
 

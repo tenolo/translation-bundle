@@ -8,7 +8,6 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Tenolo\Bundle\TranslationBundle\Entity as BundleEntities;
-use Tenolo\Bundle\TranslationBundle\Entity\Plan as BundleInterfaces;
 
 /**
  * Class TenoloTranslationExtension
@@ -44,10 +43,10 @@ class TenoloTranslationExtension extends Extension implements PrependExtensionIn
         return [
             'orm' => [
                 'resolve_target_entities' => [
-                    BundleInterfaces\DomainInterface::class      => BundleEntities\Domain::class,
-                    BundleInterfaces\LanguageInterface::class    => BundleEntities\Language::class,
-                    BundleInterfaces\TokenInterface::class       => BundleEntities\Token::class,
-                    BundleInterfaces\TranslationInterface::class => BundleEntities\Translation::class,
+                    BundleEntities\DomainInterface::class      => BundleEntities\Domain::class,
+                    BundleEntities\LanguageInterface::class    => BundleEntities\Language::class,
+                    BundleEntities\TokenInterface::class       => BundleEntities\Token::class,
+                    BundleEntities\TranslationInterface::class => BundleEntities\Translation::class,
                 ]
             ]
         ];
